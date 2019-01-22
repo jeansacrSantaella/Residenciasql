@@ -1,0 +1,67 @@
+<h1 align="center">
+  Auxiliar
+</h1>
+<hr>
+
+<div class="row">
+  <div class="col-xs-3">
+    <label for="">Nombre</label>
+  </div>
+  <div class="col-xs-3">
+    <label for="">Disciplinas</label>
+  </div>
+  <div class="col-xs-4">
+  <label for="">Tecnológico de Procedencia</label>
+  </div>
+  <div class="col-xs-2">
+  <label for="">Tipo</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3">
+    <input type="text" class="form-control" ng-model="auxiliar.nombre" />
+  </div>
+  <div class="col-xs-3">
+    <input type="text"
+    name="disciplinas"
+    placeholder="Disciplinas a cargo"
+    required
+    title="Disciplina a su cargo"
+    class="form-control" ng-model="auxiliar.disciplinas" />
+  </div>
+  <div class="col-xs-4">
+    <input type="text" name="TecOrigen"
+    placeholder="Tecnológico de origen"
+    required
+    title="TecOrigen"
+    class="form-control" ng-model="auxiliar.tecOrigen"  />
+  </div>
+  <div class="col-xs-2">
+  <select type="text" class="form-control" ng-model="auxiliar.tipo">
+        <option value="Entrenador">Entrenador</option>
+        <option value="Chofer">Chofer</option>
+        <option value="Médico">Médico</option>
+        <option value="Promotor">Promotor</option>
+      </select>
+  </div>
+</div>
+<br><br><br>
+<div class="row">
+    <div class="col-xs-1"></div>
+</div>
+<div class="row">
+    <div class="col-xs-1 text-left" >
+                <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/auxiliares'}" ng-show="main.UsuarioFactory.usuario.id"
+                onclick="location.href='#/auxiliares'">
+                <span class="glyphicon glyphicon-chevron-left">Regresar</span>
+                </button> 
+    </div>
+    <div class="col-xs-10 text-right" >
+    </div>
+    <div class="col-xs-1 text-right">
+      <button type="button" class="btn btn-primary" ng-click="guardarAuxiliar()">
+        <i class="far fa-save" aria-hidden></i> Guardar
+      </button>
+    </div>
+</div>  

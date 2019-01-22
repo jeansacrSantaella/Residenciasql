@@ -1,0 +1,110 @@
+<h1 align="center">Registro de Staff</h1>
+<br><br>
+  <div class="container">    
+         <form>
+            <div class="form-group row">
+                   <div class="col-xs-4">
+                       <label class="col-xs-20 control-label"> Numero de Control </label>
+                       <input type="text" 
+                              title="EL NUMERO DE CONTROL ESTA MAL" 
+                              class="form-control" 
+                              placeholder="INGRESE NUMERO DE CONTROL"
+                              maxlength="11" pattern="[0-9]*"
+                              ng-model="staff.numeroControl"
+                        required/>
+                   </div>
+                   <div class="col-xs-4">
+                        <label class="col-xs-20 control-label">Tarea a Realizar</label>
+                        <select class="form-control" id="genero" 
+                              placeholder="Selecciona Area de trabajo" 
+                              ng-model="staff.tareaAsignada"
+                              required >
+                             <option value="Ninguna" selected>Ninguna</option>
+                             <option value="Vigilancia">Vigilancia</option>
+                             <option value="Fuego Nuevo">Fuego Nuevo</option>
+                             <option value="Comedor">Comedor</option>
+                             <option value="Guia">Guia</option>
+                        </select>   
+                   </div>
+            </div> 
+
+            
+            
+             <div class="form-group row">
+             
+                  <div class="col-xs-4">
+                  <label for="apePaterno" class="col-xs-20 control-label" > Nombre </label>
+
+                        <input id="input-activo" 
+                              type="text" class="form-control" 
+                              placeholder="NOMBRE"
+                              maxlength="30" minlength="3"
+                              id="nomb"pattern="[A-Za-z ]*" 
+                              ng-model="staff.nombre"
+                        required/>
+                  </div>
+                  <div class="col-xs-4">
+                  <label for="apePaterno" class="col-xs-20 control-label" > Apellido Materno </label>
+                        <input type="text" class="form-control" 
+                              placeholder="APELLIDO PATERNO" 
+                              maxlength="30" minlength="2"
+                              id="apePaterno"pattern="[A-Za-z ]*" 
+                              ng-model="staff.apellidoPaterno"
+                        required/>
+                  </div>
+                  
+                  <div class="col-xs-4">
+                  <label for="apeMaterno" class="col-xs-20 control-label"> Apellido Paterno </label>
+                        <input type="text" class="form-control" 
+                              placeholder="APELLIDO MATERNO" 
+                              maxlength="30" minlength="2"
+                              id="apeMaterno"pattern="[A-Za-z ]*" 
+                              ng-model="staff.apellidoMaterno"
+                        required>
+                  </div>
+             </div>
+            <label for="genero" class="col-xs-4 control-label">Genero:</label>
+            <label for="tel"class="col-xs-6 control-label">Telefono: </label>
+            <div class="form-group row">
+                  <div class="col-xs-4">
+                        <select class="form-control" id="genero" 
+                              placeholder="SELECCIONA GENERO" 
+                              ng-model="staff.genero"
+                              required >
+                             <option>Hombre</option>
+                             <option>Mujer</option>
+                        </select>   
+                  </div>  
+                 <div class="col-xs-4"> 
+                        <input type="tel" class="form-control" 
+                        placeholder="9511155975"   
+                        minlength="10" maxlength="13"
+                        pattern="[0-9]*"
+                        ng-model="staff.telefono"
+                  required>
+                 </div> 
+          </div>
+    <br><br>
+
+
+    <div class="row">
+      <div class="col-xs-1"></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-1 text-left" >
+                  <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/staffs'}" ng-show="main.UsuarioFactory.usuario.id"
+                  onclick="location.href='#/staffs'">
+                  <span class="glyphicon glyphicon-chevron-left">Regresar</span>
+                  </button> 
+      </div>
+      <div class="col-xs-10 text-right" >
+                      
+      </div>
+      <div class="col-xs-1 text-right" >
+          <button type="button" class="btn btn-primary" ng-click="guardarStaff()">
+              <i class="far fa-save" aria-hidden></i> Registrar
+          </button>
+      </div>
+  </div>  
+    </form>
+ </div>

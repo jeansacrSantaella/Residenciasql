@@ -1,0 +1,38 @@
+
+<div>
+  <h1>Registro de Hotel</h1> 
+   <hr>
+   <br><br>
+    <label>Hotel</label>
+        <input type="text" id="nombre" 
+                name="nombre" placeholder="Nombre del Hotel" 
+                ng-model="hotel.nombre">
+   
+    <label>Teléfono</label> 
+        <input type="text" id="telefono"  
+                maxlength="13"  name="telefono" 
+                pattern="[0-9]*" 
+                placeholder="9511234567" 
+                ng-model="hotel.telefono">
+   <br><br>
+    <label>Correo</label> 
+        <input type="text" id="correo" 
+                name="correo" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$" 
+                placeholder="nombre123@gmail.com" 
+                ng-model="hotel.correo">
+
+    <label>Contacto</label> 
+        <input type="text" id="contacto" name="contacto" 
+                placeholder="Nombre del Contacto" 
+                ng-model="hotel.nombreEncargado">
+   <br>
+    <br><br>  
+    
+   <div id="otro" ></div> 
+      <button type="button" class="btn btn-primary" ng-click="guardarHotel()">
+        <i class="far fa-save" aria-hidden></i> Guardar
+      </button>
+
+      <input type="submit" id="registro" value="Registrar" onclick="" class="btn btn-primary" > 
+      <a class="btn btn-primary" href="#/hoteles/asignacion">Siguiente</a>
+</div>

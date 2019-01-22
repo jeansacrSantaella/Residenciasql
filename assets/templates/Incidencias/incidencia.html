@@ -1,0 +1,110 @@
+<h1 align="center">Reporte Incidencia</h1>
+<hr>
+<div class="row">
+      <div class="col-xs-4">
+      <label for="" >Nombre</label>
+      </div>
+      <div class="col-xs-4"> 
+      <label for=""> Apellido Paterno </label>
+      </div>
+      <div class="col-xs-4">
+      <label for=""> Apellido Materno </label>
+      </div>
+</div>
+
+<div class="row">
+      <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder="NOMBRE"  ng-model="incidencia.nombre"  required>
+      </div>
+      <div class="col-xs-4">
+            <input type="text" class="form-control"  placeholder="APELLIDO PATERNO" ng-model="incidencia.apellidoP" required>
+      </div>
+      <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder="APELLIDO MATERNO" ng-model="incidencia.apellidoM" required>
+      </div>
+</div>
+
+<div class="row">
+      <div class="col-xs-4">
+            <label for="">Correo </label>
+      </div>
+      <div class="col-xs-4">
+            <label for="">Telefono </label>
+      </div>
+</div>
+
+<div class="row">
+      <div class="col-xs-4">
+            <input type="email" class="form-control" placeholder="Correo" ng-model="incidencia.correo" required>
+      </div>
+      <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder="Telefono" maxlength="13"  ng-model="incidencia.telefono" required>
+      </div>
+</div>
+
+<div class="row">
+      <div class="col-xs-4">
+            <label for="">Tec. Origen: </label>
+      </div>
+      <div class="col-xs-4">
+            <label for="">Cargo:</label>
+      </div>
+      <div class="col-xs-4">
+            <label for="">Disciplina: </label>
+      </div>
+</div>
+      
+<div class="row" >
+      <div class="col-xs-4">
+            <select id="tec" class="form-control" ng-model="incidencia.tecOrigen">
+                  <option value="I.T. Oaxaca" selected>I.T. Oaxaca</option> 
+                  <option value="I.T. MORELOS">I.T. MORELOS</option> 
+                  <option value="I.T. ZACATECAS">I.T. ZACATECAS</option>
+            </select>
+      </div>
+      <div class="col-xs-4">
+            <input type="text"  class="form-control" ng-model="incidencia.cargo">
+      </div>
+      <div class="col-xs-4">
+            <select id="disci" class="form-control" ng-model="incidencia.disciplina">
+                  <option value="Ajedrez" selected>Ajedrez</option> 
+                  <option value="Atletismo">Atletismo</option> 
+                  <option value="Tenis">Tenis</option>
+                  <option value="Futball">Futbol</option>
+                  <option value="Natación">Natación</option> 
+                  <option value="Voleyball">Voleibol</option> 
+            </select>
+      </div>
+</div>
+<br>
+<div class="row">
+      <div class="col-xs-4">
+            <label for=""> Tipo de Incidencia</label>
+      </div>
+      <div class="col-xs-4">  
+                  <select id="tipoDes" class="form-control" ng-model="incidencia.tipo">
+                        <option value="Climatológica" selected>Climatológica</option> 
+                        <option value="Deportiva">Deportiva</option> 
+                        <option value="Otra">Otra</option>
+                  </select>
+      </div>
+</div>
+<br>
+<div class="row">
+      <div class="col-xs-4">
+            <label for="">Descripcion de Incidencia</label>
+      </div>
+      <div class="col-xs-6"> 
+                  <textarea id="descripcion" rows="4" cols="50" class="form-control" value="" placeholder="Descripcion detallada de la eventualidad" ng-model="incidencia.descripcion"> 
+                  </textarea>
+      </div>
+</div>
+<br>
+<div class="row">
+      <div class="col-xs-1 text-right">
+            <button type="button" class="btn btn-primary" ng-click="guardarIncidencia()">
+                  <i class="far fa-save" aria-hidden></i> Enviar
+            </button>
+      </div>
+</div>
+        

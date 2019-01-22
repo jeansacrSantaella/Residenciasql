@@ -1,0 +1,57 @@
+<script>
+        // evento para recibir lo que se busca search
+        $(document).ready(function(){
+        $("#search").keyup(function(){
+        _this = this;
+        // muestrar solo los que coincidan con las busqueda
+        //id de la tabla es mytable 
+        $.each($("#mytable tbody tr"), function() {
+        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+        $(this).hide();
+        else
+        $(this).show();
+        });
+        });
+       });
+       </script>
+    
+    <h1 align="center">
+        Incidencias
+        <a href="#/incidencia/nuevo" class="btn btn-primary btn-sm pull-right">
+          <i class="fas fa-plus" aria-hidden></i> Nueva Incidencia
+        </a>
+    </h1>
+    <br>
+    <div class="form-group">
+      <left><label>Busqueda de Incidencia</label></left><br>
+          <center><input type="text" class="form-control pull-left" style="width:20%" id="search" placeholder="Nombre Incidencia...."></center>
+    </div>
+    <br>
+         <hr>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table ng-init='configPages()'class='table' id="mytable">
+            <thead>
+              <tr>
+                <th>Quien genera</th>
+                <th>Fecha Reportado</th>
+                <th>Tipo</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat='dep in incidencias | startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+                <td>{{dep.nombre}} {{dep.apellidoP}} </td>
+                <td>{{dep.fechaReporte}}</td>
+                <td>{{dep.tipo}}</td>
+                <td> 
+                    <!--button type="button" class="btn btn-info btn-sm" ng-click="imprimir(a)">
+                    <i class="fas fa-print" aria-hidden></i>
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
+                    <i class="fas fa-trash-alt" aria-hidden></i>
+                    </button-->
+                    <a ng-href="#/incidencia/{{dep.id}}" class="btn btn-info btn-sm">
+                    <i class="fas fa-pencil-alt" aria-hidden></i></a></td>
+            </tbody>
+        </div>

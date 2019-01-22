@@ -1,0 +1,96 @@
+<script type="text/javascript">
+    function habilitar()
+    {
+        var camp1= document.getElementById('ps1');
+        var camp2= document.getElementById('ps2');
+        var boton= document.getElementById('boton');
+        if (camp1.value != camp2.value) {
+
+            boton.disabled = true;
+        }else {
+            boton.disabled = false;
+        }
+    }
+</script>
+<h1>
+    <span ng-show="!usuario.curp">
+      Crear nuevo usuario
+    </span>
+    <span ng-show="usuario.curp">
+      {{usuario.nombre}} {{usuario.apellidoP}} {{usuario.apellidoM}}
+    </span>
+  </h1>
+
+
+<hr>  
+  <div class="row">
+    <div class="col-xs-4">
+      <label for="">Nombre</label>
+    </div>
+    <div class="col-xs-4">
+      <label for="">Apellido Paterno</label>
+    </div>
+    <div class="col-xs-4">
+    <label for="">Apellido Materno</label>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-4">
+      <input type="text" class="form-control" ng-model="usuario.nombre" />
+    </div>
+    <div class="col-xs-4">
+        <input type="text" class="form-control" ng-model="usuario.apellidoP" />
+    </div>
+    <div class="col-xs-4">
+        <input type="text" class="form-control" ng-model="usuario.apellidoM"/>
+    </div>
+  </div>
+  
+  <div class="row">
+        <div class="col-xs-4">
+          <label for="">CURP</label>
+        </div>
+
+        <div class="col-xs-4">
+            <label for="">Tipo</label>
+        </div>
+  </div>
+
+  <div class="row">
+        <div class="col-xs-4">
+          <input type="text" class="form-control" ng-model="usuario.curp" />
+        </div>
+        <div class="col-xs-4">
+            <select name="Disciplina" class="form-control" ng-model="usuario.tipo">
+               <option value="deportivo">Coordinador Deportivo</option> 
+               <option value="hospedaje">Coordinador de Hospedaje</option> 
+               <option value="registro">Coordinaodr de Registro</option>
+               <option value="staff">Coordinadoor de Personal de Apoyo</option> 
+            </select>
+        </div>        
+    </div>
+
+  <div class="row">
+        <div class="col-xs-4" ng-show="!usuario.id">
+                <label for="">Contraseña</label>
+        </div>
+        <div class="col-xs-4" ng-show="!usuario.id">
+                <label for="">Confirmar Contraseña</label>
+        </div>
+  </div>
+  <div class="row">
+       <div class="col-xs-4">
+            <input type="password" class="form-control" id="ps1" ng-show="!usuario.id" ng-model="usuario.password" required/>        
+        </div>
+        <div class="col-xs-4">
+            <input type="password" class="form-control" id="ps2" ng-show="!usuario.id" onKeyUp="habilitar()" required/>        
+        </div>
+  </div>
+   
+    <button type="button" id="boton" class="btn btn-primary" ng-show="!usuario.id" disabled=false ng-click="guardarUsuario()">
+         <i class="far fa-save" aria-hidden></i> Guardar
+    </button>
+    <button type="button"  class="btn btn-primary" ng-show="usuario.id" ng-click="actualizar()">
+         <i class="far fa-save" aria-hidden></i> Guardar
+    </button>

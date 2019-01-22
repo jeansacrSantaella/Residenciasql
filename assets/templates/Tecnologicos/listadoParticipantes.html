@@ -1,0 +1,129 @@
+<script>
+    // evento para recibir lo que se busca search
+    $(document).ready(function(){
+    $("#search").keyup(function(){
+    _this = this;
+    // muestrar solo los que coincidan con las busqueda
+    //id de la tabla es mytable 
+    $.each($("#mytable tbody tr"), function() {
+    if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+    $(this).hide();
+    else
+    $(this).show();
+    });
+    });
+   });
+   </script>
+<h1 align="center">Lista de Invitados</h1>
+<h3 align="center">{{nombreTec}}</h3>
+<br>
+<div class="form-group">
+  <left><label>Busqueda </label></left><br>
+      <center><input type="text" class="form-control pull-left" style="width:20%" id="search" placeholder="Nombre o disciplina...."></center>
+</div>
+<br><br>
+<div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-6">
+        <select class="form-control" >
+           <option  ng-click='opcion(1)' value="Entrenadores">Entrenadores</option> 
+           <option  ng-click='opcion(2)' value="Estudiantes" selected>Estudiantes</option> 
+           <option  ng-click='opcion(3)' value="otros">Personal de Apoyo</option>
+        </select>
+    </div>
+    <div class="col-xs-3"></div>
+<div>
+<br><br>
+<div class="row">
+    <div class="col-xs-1 text-left" >
+                <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/tecnologicos'}" ng-show="main.UsuarioFactory.usuario.id"
+                onclick="location.href='#/tecnologicos'">
+                <span class="glyphicon glyphicon-chevron-left">Regresar</span>
+                </button> 
+    </div>
+    <div class="col-xs-10 text-right" ></div>
+    <div class="col-xs-1 text-right" >
+            <a ng-href="#/nuevoDeportista/{{nombreTec}}" class="btn btn-info btn-sm">
+                <i class="fas fa-pencil-alt" aria-hidden></i> Crear Deportista</a>
+    </div>
+</div>  
+<br>
+<hr>
+<div  class="panel panel-default">
+    <div class="panel-body">
+        <table ng-if="opc===2" ng-init='configPages()'class='table' id="mytable">
+            <thead>
+            <tr>
+                <th>Asistencia</th>
+                <th>Numero de control</th>
+                <th>Asistencia</th>
+            </tr>
+            </thead>
+        <tbody>
+          <tr  ng-repeat='dep in respuesta| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+            <td>{{dep.numeroControl}}</td>
+            <td>
+              {{dep.nombre}}
+                <div class="material-switch pull-right">
+                    <input id="{{dep.nombre}}" name="someSwitchOption001"  
+                         ng-click='activarDeportista(dep.curp)'
+                        type="checkbox"/>
+                    <label for="{{dep.nombre}}" class="label-info"></label>
+                </div>
+            </td>
+        </tbody>
+
+
+      <table ng-if="opc===1" ng-init='configPages()'class='table' id="mytable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Disciplina(s)</th>
+            <th>Asistencia</th>
+          </tr>
+        </thead>
+       <tbody>
+          <tr ng-repeat='ent in respuesta| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (ent.nombre)'>
+            <td>{{ent.nombre}}</td>
+            <td>{{ent.disciplinas}}
+                <div class="material-switch pull-right">
+                    <input id="{{ent.nombre}}" name="someSwitchOption001"  
+                         ng-click='activarAuxiliar(ent.id)'
+                        type="checkbox"/>
+                    <label for="{{ent.nombre}}" class="label-info"></label>
+                </div>     
+            </td>
+        </tbody>
+
+        <table ng-if="opc===3" ng-init='configPages()'class='table' id="mytable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Asistencia</th>
+          </tr>
+        </thead>
+       <tbody>
+          <tr ng-repeat='otr in respuesta| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (otr.nombre)'>
+            <td>{{otr.nombre}}</td>
+            <td>{{otr.tipo}}
+                <div class="material-switch pull-right">
+                    <input id="{{otr.nombre}}" name="someSwitchOption001"  
+                         ng-click='activarAuxiliar(otr.id)'
+                        type="checkbox"/>
+                    <label for="{{otr.nombre}}" class="label-info"></label>
+                </div>     
+            </td>
+        </tbody>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar2" >
+    <div class="container" id="navbar1">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="#">{{main.app.name}}</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="fuentelista"><a href="#/welcome">Inicio</a></li>
+          <li class="fuentelista"><a href="#/evento">Evento</a></li>
+          <li class="fuentelista"><a href="#/disciplinas">Disciplinas</a></li>
+          <li class="fuentelista"><a href="#/mapas">Ubicaciones</a></li>
+          <li class="fuentelista"><a href="#/calendario">Calendario</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="this.router.url" ng-show="main.UsuarioFactory.usuario.id">Configuración
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!--li ng-class="{'active':main.rutaActual=='/deportistas'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/deportistas">Deportistas</a></li-->
+              <li ng-class="{'active':main.rutaActual=='/deportistas'}" ng-if="main.UsuarioFactory.usuario.tipo === 'deportivo' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/deportistas">Deportistas</a></li>
+              <!--li ng-class="{'active':main.rutaActual=='/auxiliares'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/auxiliares">Auxiliares</a></li-->
+              <li ng-class="{'active':main.rutaActual=='/auxiliares'}" ng-if="main.UsuarioFactory.usuario.tipo === 'deportivo' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/auxiliares">Auxiliares</a></li>
+              <li ng-class="{'active':main.rutaActual=='/tecnologicos'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/tecnologicos">Tecnológico</a></li>
+              <!--li ng-class="{'active':main.rutaActual=='/hoteles'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/hoteles">Hoteles</a></li-->
+              <li ng-class="{'active':main.rutaActual=='/staffs'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/staffs">Staff</a></li>
+              <li ng-class="{'active':main.rutaActual=='/usuarios'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/usuarios">Usuarios</a></li>
+              <li ng-class="{'active':main.rutaActual=='/incidencias'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/incidencias">Incidencia</a></li>
+
+            </ul>
+          </li>
+          <li ng-class="{'active':main.rutaActual=='/login'}" ng-show="!main.UsuarioFactory.usuario.id"><a href="#/login">Entrar</a></li>
+          <li class="fuentelista"><a href="#/acercade">Acerca de</a></li>
+          <li ng-show="main.UsuarioFactory.usuario.id">
+            <a href="" ng-click="main.UsuarioFactory.logout()">
+              Salir ({{main.UsuarioFactory.usuario.nombre}} {{main.UsuarioFactory.usuario.apellidoP}} {{main.UsuarioFactory.usuario.apellidoM}} ->Coordinador {{main.UsuarioFactory.usuario.tipo}})
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="imagenCabecera">
+      <img src="images/header_federal_ito.png"/>
+  </div>

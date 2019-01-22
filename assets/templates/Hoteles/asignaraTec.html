@@ -1,0 +1,62 @@
+<script>
+  // evento para recibir lo que se busca search
+  $(document).ready(function(){
+  $("#search").keyup(function(){
+  _this = this;
+  // muestrar solo los que coincidan con las busqueda
+  //id de la tabla es mytable 
+  $.each($("#mytable tbody tr"), function() {
+  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+  $(this).hide();
+  else
+  $(this).show();
+  });
+  });
+ });
+ </script>
+<h1 ng-show="hotel.id">
+    Hotel: {{hotel.nombre}}
+  </h1>
+  <h1 ng-show="!hotel.id">
+    Error al encontrar hotel
+  </h1>
+<hr><br>
+<h1>
+  Tecnológicos invitados    
+</h1>
+<br>
+<div class="form-group">
+<left><label>Busqueda de Tecnológico</label></left><br>
+    <center><input type="text" class="form-control pull-left" style="width:30%" id="search" placeholder="Nombre Tecnologico...."></center>
+</div>
+<br>
+   <hr>
+<div class="panel panel-default">
+    <div class="panel-body">
+      <table ng-init='configPages()'class='table' id="mytable">
+        <thead>
+          <tr>
+            <th>Nombre de Tecnológico</th>
+            <th>Cantidad de habitaciones</th>
+            <th>Asignar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat='tec in tecnologicos | startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (tec.nombre)'>
+            <td>{{tec.nombre}}</td>
+            <td><input type="text" id="habitacion"  
+              maxlength="2"  name="habitacion" 
+              pattern="[0-9]*" 
+              placeholder="1" 
+              ng-model="tec.cantidadHabitaciones">
+            </td>
+            <td> 
+                <button type="button" class="btn btn-primary" ng-click='asignarHotel(hotel.nombre,tec.nombre,habitacion)'>
+                    <i class="far fa-save" aria-hidden></i>
+                </button>
+            </td>
+                
+        </tbody>
+    </div>
+
+

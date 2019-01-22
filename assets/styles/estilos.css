@@ -1,0 +1,356 @@
+/*
+ * ─── FUENTES INICIAN ────────────────────────────────────────────────────────────
+ 
+@font-face
+  {
+  font-family: "FontAwesome";
+  src: url(“styles/webfonts/fonts/nombredelatipografia.eot”);
+  src: url(“styles/webfonts/fonts/nombredelatipografia.eot”) format(“embedded-opentype”),
+  url(“styles/webfonts/fa-bradns-400.woff”) format(“woff”),
+  url(“styles/webfonts/fa-bradns-400.ttf”) format(“truetype”),
+  url(“styles/webfonts/fa-bradns-400.svg”) format(“svg”);
+  }
+  @font-face
+  {
+  font-family: "soberanaTitular";
+  src: url(“styles/soberanatitular-bold-otf/nombredelatipografia.eot”);
+  src: url(“styles/soberanatitular-bold-otf/nombredelatipografia.eot”) format(“embedded-opentype”),
+  url(“styles/soberanatitular-bold-otf/nombredelatipografia.woff”) format(“woff”),
+  url(“styles/soberanatitular-bold-otf/nombredelatipografia.ttf”) format(“truetype”),
+  url(“styles/soberanatitular-bold-otf/nombredelatipografia.svg”) format(“svg”);
+  }
+/*
+ * ─── FUENTES TERMINAN ────────────────────────────────────────────────────────────
+ */
+
+
+body{
+  width: 90%;
+  padding: 4% 0 0 0;
+  margin:auto;
+  background-color: #fafafa;
+}
+.principal{
+  height: 100%;
+  width:100%;
+}
+.contenedor-vistas{
+  height: 90%;
+  width: 90%;
+  padding: 0 0 0 0 ;
+  margin:auto;
+}
+.header{
+  height:150px;
+  padding:150px;
+  font-weight: normal;
+  border-bottom:1px solid #ccc;
+}
+.footer{
+  height:60px;
+  padding:5%;
+  border-top:1px solid #ccc;
+}
+/*p,h1,h2,h3,h4,h5,ul,li{
+  font-family: "soberanaTitular";
+}*/
+/*.fuentelista{
+  font-family: "FontAwesome";
+}*/
+/*
+ * ─── SUBMENU ────────────────────────────────────────────────────────────────────
+ */
+
+ ul li:hover a{
+   background: #000;
+  background-color:black;
+ }
+ .dropdown-menu{
+  background-color:#000;
+ }
+ .dropdown-menu > li > a{
+   color:#ffff;
+ }
+ .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover{
+   color:#ffff;
+   background-color: #000;
+   background-image:-webkit-linear-gradient(top,#000000 ,#ffff 100%)
+
+ }
+  
+/*
+ * ─── Inicia DISCIPLINAS ────────────────────────────────────────────────────────────────
+ */
+  #visible{
+    visibility: hidden;
+  }
+
+#titulo:hover {background-color: black;}
+/*
+ * ─── TERMINA DISCIPLINAS ────────────────────────────────────────────────────────
+ */
+
+    
+/*
+ * ─── MENU ───────────────────────────────────────────────────────────────────────
+ */
+
+ #navbar,#navbar1,#navbar2{
+   background-color: #000;
+   font-weight: normal;
+   color: #fbfbfb;
+ }
+ .navbar-inverse{
+  background-image: linear-gradient(to bottom,#0000 0,#000 100%);
+  font-weight: normal; 
+  color: #fbfbfb;
+ }
+ .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+   text-shadow: #fbfbfb;
+   color: #fbfbfb;
+ }
+/*
+ * ─── FUENTES INICIAN ────────────────────────────────────────────────────────────────────
+ */
+
+/*
+██       ██████   ██████  ██ ███    ██
+██      ██    ██ ██       ██ ████   ██
+██      ██    ██ ██   ███ ██ ██ ██  ██
+██      ██    ██ ██    ██ ██ ██  ██ ██
+███████  ██████   ██████  ██ ██   ████
+*/
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.navbar-global {
+  background-color: indigo;
+}
+
+.navbar-global .navbar-brand {
+  color: white;
+}
+
+.navbar-global .navbar-user > li > a
+{
+  color: white;
+}
+/*
+ *
+ * HEADER IMAGEN
+ *
+ */
+.imagenCabecera{
+  padding: auto;
+  margin:auto;
+  width: 90%;
+}
+.imagenCabecera img{
+  width: 100%;
+  height: 20%;
+  margin:0 auto;
+}
+/***mapas***/
+.opcionesMapa{
+  border:#ffff;
+}
+.mapasFrame{
+  padding-top:0;
+  border:#ffff;
+}
+/*
+Input
+*/
+.ajs-dialog{
+  background-color: cornflowerblue;
+}
+/*******
+Estilos frames incrustados
+*******/
+
+.responsiveContent {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.2%;
+  margin-bottom: 20px;
+}
+.responsiveContent iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*****************
+imagen noticias
+*****************/
+.noticias1{
+  padding: auto;
+  margin:auto;
+  width: 90%;
+}
+.noticias1 img,{
+margin: 0 auto;
+  }
+
+/*****************
+  clima
+*****************/
+.clima{
+  float:right;
+}
+/*
+ * ─── ACERCA DE P ────────────────────────────────────────────────────────────────
+ /* ──────────────────────────────────────────────────────────────────────────────── */
+#nuestroTec{
+  color:#1b396a;
+}
+.acercaDe{
+   text-align : justify;
+}
+.lema{
+  font-size: 150%;
+  color:#ff6600;
+  font-family: "soberanaTitular";
+  font-style: italic;
+  background: transparent;
+}
+.lema1{
+  color:#ff6600;
+  font-family: "soberanaTitular";
+  background: transparent;
+}
+
+/*
+ * ─── TITULO EVENTO ──────────────────────────────────────────────────────────────
+ */
+
+ .fechaEvento{
+  text-align: right;
+  color:rgb(155,153,153);
+}
+.titNota{
+  color:#b92025;
+  text-align: left;
+  font-weight: normal;
+}
+.estiloNota{
+  text-align: justify;
+}
+.liNota{
+font-size:20px;
+font-family: "soberanaTitular";
+}
+/*
+ * ─────────────────────────────────────────────────────────────── FIN TITULO ─────
+ */
+
+  /*
+   * ───────────────────────────────────────────────────────────────────────── Foto de perfil ─────
+   */
+   .perfil-thumb{
+    margin:0 auto;
+    width: 100px;
+    height: 130px;
+    padding:10px;
+    border: 1px solid #444;
+    box-shadow: 0 0 5px #444;
+  }
+  
+  .perfil-thumb img{
+    max-width: 80px;
+    max-height: 110px;
+  }
+
+  
+
+
+  
+  .material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+.content {
+  max-width: 500px;
+  margin: auto;
+  /*background: white;*/
+  padding: 10px;
+} 
+
+#tabla1{
+width: 100%;
+}

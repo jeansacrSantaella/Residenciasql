@@ -1,0 +1,47 @@
+<script>
+    // evento para recibir lo que se busca search
+    $(document).ready(function(){
+    $("#search").keyup(function(){
+    _this = this;
+    // muestrar solo los que coincidan con las busqueda
+    //id de la tabla es mytable 
+    $.each($("#mytable tbody tr"), function() {
+    if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+    $(this).hide();
+    else
+    $(this).show();
+    });
+    });
+   });
+   </script>
+  <h1>Asignación de Hoteles</h1>
+  <br>
+   <a href="#/hotel/nuevo" class="btn btn-primary btn-sm pull-right">
+      <i class="fas fa-plus" aria-hidden></i> Nuevo Hotel
+    </a>
+  <hr>
+    <div class="panel panel-dafault">
+      <div class="panel-body">
+        <table ng-init='configPages()'class='table'id="mytable">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Asignar</th>
+          <th>Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat='hot in hoteles| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+          <td>{{hot.nombre}}</td>
+          <td>
+            <a ng-href="#/asignar/{{hot.id}}" class="btn btn-info btn-sm">
+            <i class="fas fa-pencil-alt" aria-hidden></i></a>
+          </td>
+          <td>
+            <a ng-href="#/hotel/{{hot.id}}" class="btn btn-info btn-sm">
+            <i class="fas fa-pencil-alt" aria-hidden></i></a>
+          </td>
+      </tbody>
+</div>
+</div>
+  </table> 
