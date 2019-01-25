@@ -14,7 +14,7 @@ module.exports = {
     },
     hotel:{
       type:'string',
-      required:true
+      required:false
     },
     cantidadHabitaciones:{
       type:'number',

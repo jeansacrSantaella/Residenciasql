@@ -1,0 +1,16 @@
+
+
+<form class="form-signin" name="formLogin">
+  <h2 class="form-signin-heading">Inicio de Sesión</h2>
+  <label for="" class="sr-only">Curp</label>
+  <input type="text" ng-model="curp" class="form-control" placeholder="curp" required autofocus>
+  <label for="inputPassword" class="sr-only">Contraseña</label>
+  <input type="password" ng-model="password" class="form-control" placeholder="Contraseña" required>
+  <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="main.UsuarioFactory.login(curp, password)" ng-disabled="formLogin.$invalid">Entrar</button>
+
+  <div class="error" ng-show="!curp||!password">
+    <hr>
+    <div ng-show="!curp">La Curp es requerida</div>
+    <div ng-show="!password">El password es requerido</div>
+  </div>
+</form>

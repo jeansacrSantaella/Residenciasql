@@ -67,7 +67,7 @@ module.exports.routes = {
   '/deportistas/activar':{action: 'deportistas/activar'},
   '/deportistas/todos':{action: 'deportistas/todos'},
   '/deportistas/uno':{action: 'deportistas/uno'},
-  '/deportistas/guardarTecnologico':{action: 'deportistas/guardarTecnologico'},
+  //'/deportistas/guardarTecnologico':{action: 'deportistas/guardarTecnologico'},
   
   '/auxiliares/entrenadores-tec':{action: 'auxiliares/entrenadores-tec'},
   '/auxiliares/otros-tec':{action: 'auxiliares/otros-tec'},

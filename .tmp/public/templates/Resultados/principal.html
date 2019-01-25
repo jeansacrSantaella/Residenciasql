@@ -1,0 +1,98 @@
+<!--i><i class="fa fa-align-left" aria-hidden="true">
+    <a href="tablaResultados.html"><button>Resultados</button></a>
+</i-->
+<center><h1>ASIGNACIÓN DE ENFRENTAMIENTOS</h1></center>
+
+  <div class="row">
+    <div class="col-xs-1 text-left"></div>
+    <div class="col-xs-12 text-right"></div>
+    <div class="col-xs-1 text-left"> 
+        <a ng-click="" href="#/Resultados/partidos" class="btn btn-info btn-sm">
+            <i class="fas fa-align-left" aria-hidden> Resultados</i>
+        </a>
+    </div>
+  </div>
+<center>
+	<label>Disciplina: </label>
+	 <select name="disciplina">
+	  <option value="" selected disabled hidden>Elejir Disciplina</option>
+      <option value="futbol">Futbol F</option>
+      <option value="futbol">Futbol V</option>
+      <option value="vs">Volibol Salon F</option>
+      <option value="vs">Volibol Salon V</option>
+      <option value="vp">Volibol Playa F</option>
+      <option value="vp">Volibol Playa V</option>
+      <option value="vp">Basquetbol F</option>
+      <option value="vp">Basquetbol V</option>
+      
+	 </select> 
+<br>
+	<label>Jornada: </label>
+		 <select name="jornada">
+		  <option value="" selected disabled hidden>Elejir Jornada</option>
+		  <option value="uno">1</option>
+		  <option value="dos">2</option>
+          <option value="tres">3</option>
+          <option value="semi">Semifinal</option>
+          <option value="semi">Final</option>
+		 </select> 
+<br>
+	<label>Fecha: </label>
+	<input type="date" name="fecha">
+<br>
+	<label>Sede: </label>
+		 <select name="sede">
+		  <option value="" selected disabled hidden>Elejir Sede</option>
+		  <option value="mrci">MRCI</option>
+		  <option value="salle">La Salle</option>
+		  <option value="ito">ITO</option>
+		 </select>
+</center>
+<br>
+		 <div id="Ga" class="tabcontent">
+		 	<table class="table">
+ 		<tr class="tr">
+		    <th class="th">TECNOLOGICO 1</th>
+		    <th class="th">1</th>
+		    <th class="th">TECNOLOGICO 2</th>
+		    <th class="th">2</th>
+		    <th class="th">AGREGAR</th>
+		</tr>
+	  	<tr class="tr">
+		    <td class="td">
+		    	 <select name="tec1">
+				  <option value="" selected disabled hidden>Elejir Tec...</option>
+				  <option value="ito">Instituto Tecnológico de Oaxaca</option>
+				  <option value="ita">Instituto Tecnológico de Puebla</option>
+				  <option value="itt">Instituto Tecnológico de Orizava</option>
+				 </select>
+		    </td>
+		    <td class="td">
+		    	 <select name="op1">
+				  <option value="" selected disabled hidden>Elejir opcion</option>
+				  <option value="v">Visitante</option>
+				  <option value="l">Local</option>				  
+				 </select>
+		    </td>
+		    <td class="td">
+		    	<select name="tec2">
+				  <option value="" selected disabled hidden>Elejir Tec...</option>
+				  <option value="ito">Instituto Tecnológico de Oaxaca</option>
+				  <option value="ita">Instituto Tecnológico de Puebla</option>
+				  <option value="itt">Instituto Tecnológico de Orizava</option>
+				 </select>
+		    </td>
+		    <td class="td">
+		    	<select name="op1">
+				  <option value="" selected disabled hidden>Elejir opcion</option>
+				  <option value="v">Visitante</option>
+				  <option value="l">Local</option>				  
+				 </select>
+		    </td>
+		    <td class="td">
+                <a ng-click="GuardarEncuentro()" ng-ref="" class="btn btn-info btn-sm">
+                    <i class="fas fa-save" aria-hidden></i>Guardar</a>
+		    </td>
+	 	 </tr> 
+	</table>
+		 </div>

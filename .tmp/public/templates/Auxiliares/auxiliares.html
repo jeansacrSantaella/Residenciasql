@@ -1,0 +1,40 @@
+<h1 align="center">
+    Auxiares
+    <a href="#/auxiliar/nuevo" class="btn btn-primary btn-sm pull-right">
+      <i class="fas fa-plus" aria-hidden></i> Nuevo Auxiliar
+    </a>
+</h1>
+<br>
+<div class="form-group">
+  <left><label>Busqueda de Auxiliar</label></left><br>
+      <center><input type="text" class="form-control pull-left" style="width:20%" id="search" placeholder="Nombre Auxiliar...."></center>
+</div>
+<br>
+<hr>
+<div class="panel panel-default">
+    <div class="panel-body">
+      <table ng-init='configPages()'class='table' id="mytable">
+        <thead>
+          <tr>
+            <th>NOMBRE</th>
+            <th>Tipo</th>
+            <th>Tec. de Procedencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat='aux in auxiliares| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+            <td>{{aux.nombre}} </td>
+            <td>{{aux.tipo}}</td>
+            <td>{{aux.tecOrigen}}</td>
+            <td> 
+                <button type="button" class="btn btn-info btn-sm" ng-click="imprimir(a)">
+                <i class="fas fa-print" aria-hidden></i>
+                </button>
+                <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
+                <i class="fas fa-trash-alt" aria-hidden></i>
+                </button>
+                <a ng-href="#/auxiliar/{{aux.id}}" class="btn btn-info btn-sm">
+                <i class="fas fa-pencil-alt" aria-hidden></i></a>
+            </td>
+        </tbody>
+    </div>

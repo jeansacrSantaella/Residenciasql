@@ -2,8 +2,8 @@
 // ─── DEPORTISTA ─────────────────────────────────────────────────────────────────
 //
 module.exports = {
-    friendlyName:'Guardar',
-    description: 'Guardar deportistas.',
+    friendlyName:'GuardarTecnologico',
+    description: 'Guardar deportista.',
     inputs:{
         deportista:{
           type:'json',

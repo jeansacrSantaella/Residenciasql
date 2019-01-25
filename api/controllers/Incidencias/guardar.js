@@ -18,7 +18,7 @@ module.exports = {
         sails.log('creando nuevo');
           aux=await Incidencia.create(inputs.incidencia);
       }else{
-        sails.log('que paso?');
+        sails.log('Actualizando datos');
           aux=await Incidencia.update({id:inputs.incidencia.id},inputs.incidencia);
       }
       sails.log('Resultado de guardar:',aux);

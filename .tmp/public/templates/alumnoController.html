@@ -1,0 +1,56 @@
+<h1>
+  Alumno
+</h1>
+<hr>
+
+<div class="row">
+  <div class="col-xs-4">
+    <label for="">Nombre</label>
+  </div>
+  <div class="col-xs-2">
+    <label for="">Número de Control</label>
+  </div>
+  <div class="col-xs-2">
+  <label for="">CURP</label>
+  </div>
+  <div class="col-xs-2">
+    <label for="">Disciplina</label>
+  </div>
+  <div class="col-xs-2">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-4">
+    <input type="text" class="form-control" ng-model="alumno.nombre" />
+  </div>
+  <div class="col-xs-2">
+    <!--input type="text" class="form-control" ng-model="alumno.matricula" /-->
+    <input type="text"
+    name="Nº de control"
+    placeholder="Nº de control"
+    maxlength="8"
+    required pattern="[0-9]*"
+    title="El número de control debe contener solo números"
+    class="form-control" ng-model="alumno.matricula" />
+  </div>
+  <div class="col-xs-2">
+    <input type="text" class="form-control" ng-model="alumno.curp" />
+  </div>
+  <div class="col-xs-2">	
+<select name="Disciplina" class="form-control" ng-model="alumno.disciplina">
+   <option value="Ajedrez">Ajedrez</option> 
+   <option value="Atletismo">Atletismo</option> 
+   <option value="Futball">Futball</option>
+   <option value="Natación">Natación</option> 
+   <option value="Tenis">Tenis</option>
+   <option value="Voleyball">Voleyball</option> 
+</select>
+    <!--input type="text" class="form-control" ng-model="alumno.disciplina" /-->
+  </div>
+  <div class="col-xs-2 text-right">
+  <button type="button" class="btn btn-primary" ng-click="guardar()">
+    <i class="far fa-save" aria-hidden></i> Guardar
+  </button>
+  </div>
+</div>

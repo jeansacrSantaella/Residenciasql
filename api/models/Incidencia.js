@@ -38,7 +38,7 @@ module.exports = {
       required:true
     },
     fechaReporte:{
-      type:'string',
+      type:'number',
       required:false,
       columnType:'date'
     },

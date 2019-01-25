@@ -1,0 +1,48 @@
+<h1>
+  Alumnos
+  <a href="#/alumno/nuevo" class="btn btn-primary btn-sm pull-right">
+    <i class="fas fa-plus" aria-hidden></i> Nuevo Alumno
+  </a>
+</h1>
+<hr>
+
+<div class="row">
+  <div class="col-xs-3">
+    <label for="">Nombre</label>
+  </div>
+  <div class="col-xs-3">
+    <label for="">CURP</label>
+  </div>
+  <div class="col-xs-2">
+    <label for="">Matricula</label>
+  </div>
+  <div class="col-xs-2">
+    <label for="">Disciplina</label>
+  </div>
+  <div class="col-xs-2">
+
+  </div>
+</div>
+
+<div class="row" ng-repeat="a in alumnos">
+  <div class="col-xs-3">
+    <span class="form-control" title="Creado por: {{a.usuario.nombre}}">{{a.nombre}}</span>
+  </div>
+  <div class="col-xs-3">
+    <span class="form-control" title="CURP: {{a.usuario.curp}}">{{a.curp}}</span>
+  </div>
+  <div class="col-xs-2">
+    <span class="form-control">{{a.matricula}}</span>
+  </div>
+  <div class="col-xs-2">
+    <span class="form-control">{{a.disciplina}}</span>
+  </div>
+  <div class="col-xs-2 text-right">
+    <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
+      <i class="fas fa-trash-alt" aria-hidden></i>
+    </button>
+    <a ng-href="#/alumno/{{a.id}}" class="btn btn-info btn-sm">
+      <i class="fas fa-pencil-alt" aria-hidden></i>
+    </a>
+  </div>
+</div>

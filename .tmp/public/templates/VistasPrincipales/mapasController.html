@@ -1,0 +1,74 @@
+<!--div class="responsiveContent">
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=11zMxac05mUgTpzZwltx3VxEbDnLeg4sJ">
+    </iframe>
+</div-->
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+    </style>
+    <div id="floating-panel">
+      <button id="drop" onclick="drop()">Estadios</button>
+      <button id="drop" onclick="">Comedor</button>
+      <button id="drop" onclick="">Hoteles</button>
+      <input type="text" placeholder="Busqueda"     title="Busqueda"/>
+    </div>
+    <div class="responsiveContent" id="map">
+  </div>
+    <script>
+      
+        var bandEstadios=0;
+    //<!-- ──────────────────────────────────────────────────────────────────────────────── -->
+    
+      var estadios = [
+        {lat: 17.09531,lng: -96.74963,title: "Canchas Brenamiel"},
+        {lat: 17.07864,lng: -96.71024,title:" Canchas MRCI"},
+        {lat: 17.0497, lng: -96.6934},
+        {lat: 17.08174,lng: -96.74527}
+      ];
+
+      var markers = [];
+      var map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat:17.0773,lng: -96.74441}
+        });
+      }
+
+      function drop() {
+          bandEstadios++;
+          if(bandEstadios==1){
+            for (var i = 0; i < estadios.length; i++) {
+             addMarkerWithTimeout(estadios[i], i * 200);
+            }      
+          }else{
+            clearMarkers();
+            bandEstadios=0;
+          }
+      }
+
+      function addMarkerWithTimeout(position, timeout) {
+        window.setTimeout(function() {
+          markers.push(new google.maps.Marker({
+            position: position,
+            map: map,
+            animation: google.maps.Animation.DROP
+          }));
+        }, timeout);
+      }
+
+      function clearMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmvrR1K9AlpHi4lQOHGr1jp2ZY38hhWlY&callback=initMap">
+    </script>
+  

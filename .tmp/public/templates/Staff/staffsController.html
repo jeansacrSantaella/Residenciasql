@@ -1,0 +1,99 @@
+<script>
+    // evento para recibir lo que se busca search
+    $(document).ready(function(){
+    $("#search").keyup(function(){
+    _this = this;
+    // muestrar solo los que coincidan con las busqueda
+    //id de la tabla es mytable 
+    $.each($("#mytable tbody tr"), function() {
+    if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+    $(this).hide();
+    else
+    $(this).show();
+    });
+    });
+   });
+   </script>
+
+<h1 align="center">
+    Personal de Apoyo
+    <a href="#/staff/nuevo" class="btn btn-primary btn-sm pull-right">
+      <i class="fas fa-plus" aria-hidden></i> Nuevo Personal de Apoyo
+    </a>
+</h1>
+<br>
+<div class="form-group">
+  <left><label>Busqueda de Personal de apoyo</label></left><br>
+      <center><input type="text" class="form-control pull-left" style="width:20%" id="search" placeholder="Nombre del alumno...."></center>
+</div>
+<br>
+     <hr>
+  <!--div class="row">
+    <div class="col-xs-2">
+      <label for="">Numero de control</label>
+    </div>
+    <div class="col-xs-3">
+      <label for="">Nombre</label>
+    </div>
+    <div class="col-xs-2">
+      <label for="">Telefono</label>
+    </div>
+    <div class="col-xs-3">
+      <label for="">Tarea Asignada</label>
+    </div>
+    <div class="col-xs-2">
+    </div>
+  </div>
+  
+  <div class="row" ng-repeat="st in staffs">
+    <div class="col-xs-2">
+      <span class="form-control" >{{st.numeroControl}}</span>
+    </div>
+    <div class="col-xs-3">
+      <span class="form-control" >{{st.nombre}} {{st.apellidoPaterno}} {{st.apellidoMaterno}}</span>
+    </div>
+    <div class="col-xs-2">
+      <span class="form-control">{{st.telefono}}</span>
+    </div>
+    <div class="col-xs-3">
+      <span class="form-control">{{st.tareaAsignada}}</span>
+    </div>
+    <div class="col-xs-2 text-right">
+      <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
+        <i class="fas fa-trash-alt" aria-hidden></i>
+      </button>
+      <a ng-href="#/staff/{{st.numeroControl}}" class="btn btn-info btn-sm">
+        <i class="fas fa-pencil-alt" aria-hidden></i>
+      </a>
+    </div>
+  </div-->
+  <div class="panel panel-default">
+      <div class="panel-body">
+        <table ng-init='configPages()'class='table' id="mytable">
+          <thead>
+            <tr>
+              <th>Numero de control</th>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>Tarea Asignada</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat='st in staffs| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+              <td>{{st.numeroControl}}</td>
+              <td>{{st.nombre}} {{st.apellidoPaterno}} {{st.apellidoMaterno}}</td>
+              <td>{{st.telefono}}</td>
+              <td>{{st.tareaAsignada}}</td>
+              <td> 
+                  <!--button type="button" class="btn btn-info btn-sm" ng-click="imprimir(a)">
+                  <i class="fas fa-print" aria-hidden></i>
+                  </button>
+                  <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
+                  <i class="fas fa-trash-alt" aria-hidden></i>
+                  </button-->
+                  <a ng-href="#/staff/{{st.numeroControl}}" class="btn btn-info btn-sm">
+                  <i class="fas fa-pencil-alt" aria-hidden></i></a></td>
+          </tbody>
+      </div>
+  
