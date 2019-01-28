@@ -56,7 +56,7 @@
                 <a ng-href="#/deportista/{{dep.curp}}" class="btn btn-info btn-sm">
                 <i class="fas fa-pencil-alt" aria-hidden></i></a>
                 
-                <a ng-click="desactivarDeportista()" ng-ref="#usuarios/{{dep.curp}}" class="btn btn-danger btn-sm">
+                <a ng-click="desactivarDeportista(dep.curp)" class="btn btn-danger btn-sm">
                 <i class="fas fa-user-times" aria-hidden></i></a>
               </td>
         </tbody>

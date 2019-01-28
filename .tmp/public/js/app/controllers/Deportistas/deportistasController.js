@@ -43,22 +43,27 @@ ng.controller('deportistasController', ['$scope', '$http','$timeout','$routePara
     };
 
     $scope.desactivarDeportista= function($curp){
-      /*$http.post('/deportistas/activar',{
-          curp:$curp
-      }).then(
-        function success(response){
-          console.log('Resultado de guardar:', response);
-          alertify.success('Activación completa.');
-        }, function error(err){
-          alertify.error('No se pudo activar.');
-          console.log('Error al activar:', err);
-        }
-      );$scope.refresh();*/
-      alertify.confirm('Desea desactivar Deportista?', function(){ alertify.success('Se desactivo el Deportista') }, function(){ alertify.error('Error al guardar datos')});
+      alertify.confirm('Desea desactivar usuario?', 
+      function(){ 
+        $scope.desactivar($curp);}, );
     };
+
+    $scope.desactivar=function($curp){
+      $http.post('/deportistas/desactivar',{
+        curp:$curp
+    }).then(
+      function success(response){
+        console.log('Resultado de guardar:', response);
+        $scope.refresh();
+        alertify.success('Desactivado completa.');
+      }, function error(err){
+        alertify.error('No se pudo desactivar.');
+        console.log('Error al Desactivar:', err);
+      }
+    );       
+    }
+
   
-
-
 
   }]);
   

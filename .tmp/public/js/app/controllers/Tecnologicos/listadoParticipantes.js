@@ -68,12 +68,13 @@ ng.controller('listadoParticipantes', ['$scope', '$http','$timeout','$routeParam
     }).then(
       function success(response){
         console.log('Resultado de guardar:', response);
+        $scope.refresh();
         alertify.success('Activación completa.');
       }, function error(err){
         alertify.error('No se pudo activar.');
         console.log('Error al activar:', err);
       }
-    );$scope.refresh();
+    );
   };
 
   $scope.activarAuxiliar= function($id){
@@ -82,12 +83,13 @@ ng.controller('listadoParticipantes', ['$scope', '$http','$timeout','$routeParam
     }).then(
       function success(response){
         console.log('Resultado de guardar:', response);
+        $scope.refresh();
         alertify.success('Activación completa de auxiliar.');
       }, function error(err){
         alertify.error('No se pudo activar el auxiliar.');
         console.log('Error al activar:', err);
       }
-    );$scope.refresh();
+    );
   };
 
 

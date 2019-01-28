@@ -36,25 +36,19 @@
             <th>NOMBRE</th>
             <th> TIPO</th>
             <th>Opciones</th>
-            <th>Desactivar</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat='dep in usuarios| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
             <td>{{dep.nombre}} {{dep.apellidoP}} {{dep.apellidoM}}</td>
             <td>Coordinador {{dep.tipo}}</td>
-            <td> 
-                <!--button type="button" class="btn btn-info btn-sm" ng-click="imprimir(a)">
-                <i class="fas fa-print" aria-hidden></i>
-                </button>
-                <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
-                <i class="fas fa-trash-alt" aria-hidden></i>
-                </button-->
-                <a ng-href="#/usuarios/{{dep.curp}}" class="btn btn-info btn-sm">
-                <i class="fas fa-pencil-alt" aria-hidden></i></a></td>
             <td>
-              <a ng-click="desactivarUsuario()" ng-ref="#usuarios" class="btn btn-danger btn-sm">
+                <a ng-href="#/usuarios/{{dep.curp}}" class="btn btn-info btn-sm">
+                <i class="fas fa-pencil-alt" aria-hidden></i></a>
+              <a ng-click="desactivarUsuario(dep.curp)" class="btn btn-danger btn-sm" ng-if="dep.activo === true">
               <i class="fas fa-user-times" aria-hidden></i></a>
+              <a ng-click="activarUsuario(dep.curp)" class="btn btn-success btn-sm" ng-if="dep.activo === false">
+                <i class="fas fa-user-plus" aria-hidden></i></a>
             </td>
         </tbody>
     </div>

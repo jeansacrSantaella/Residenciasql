@@ -13,7 +13,6 @@ ng.run(['$rootScope', '$location',function($rootScope, $location) {
       console.log('Acceso denegado, redireccionando a login');
       event.preventDefault();
       $location.path('/welcome').replace();
-      //$location.path('/login').replace();//direccionamiento a login
       return false;
     }
   });
