@@ -11,10 +11,6 @@ inputs:{
     id:{
         type:'string',
         required:true
-    },
-    estado:{
-        type:'string',
-        required:true
     }
 },
 exits:{
@@ -22,7 +18,7 @@ exits:{
 },
 fn:async function (inputs,exits) {
     var incidencia;
-    incidencia=await Incidencia.update({id:inputs.id}).set({estado:inputs.estado});
+    incidencia=await Incidencia.update({id:inputs.id}).set({estado:'REVISADO'});
     return exits.success(incidencia);
 }
 };

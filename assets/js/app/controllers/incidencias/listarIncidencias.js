@@ -21,8 +21,28 @@ ng.controller('incidenciasController', ['$scope', '$http','$timeout','$routePara
       );
     };
   
-    $scope.desactivarIncidencia= function($curp){
-      alertify.confirm('Desea marcar como revisada?', function(){ alertify.success('Se modifico el estado de la incidencia') }, function(){ alertify.error('Error al modificar estado')});
+    $scope.desactivarIncidencia= function($id){
+      alertify.confirm('¿Desea Marcar como revisado?', 
+      function(){ 
+        $scope.desactivar($id);}, );
     };
+    $scope.desactivar=function($id){
+      $http.post('/incidencias/revisado',{
+        id:$id
+    }).then(
+      function success(response){
+        console.log('Resultado de guardar:', response);
+        $scope.refresh();
+        alertify.success('Incidencia actualizada.');
+      }, function error(err){
+        alertify.error('No se pudo cambiar estado.');
+        console.log('Error al moificar:', err);
+      }
+    );       
+    }
+
+
+
+
   }]);
   

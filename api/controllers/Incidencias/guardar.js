@@ -9,19 +9,16 @@ module.exports = {
           type:'json',
           required: true
       }
-  },exits: {
-
+  },
+  exits: {
   },
   fn: async function (inputs,exits){
       var aux;
       if(!inputs.incidencia.id){
-        sails.log('creando nuevo');
           aux=await Incidencia.create(inputs.incidencia);
       }else{
-        sails.log('Actualizando datos');
           aux=await Incidencia.update({id:inputs.incidencia.id},inputs.incidencia);
       }
-      sails.log('Resultado de guardar:',aux);
       return exits.success(aux);
   }
 

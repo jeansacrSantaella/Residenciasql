@@ -35,7 +35,7 @@
               <tr>
                 <th>Afectado</th>
                 <th>Fecha Reporte</th>
-                <th>Tipo</th>
+                <th>Estado</th>
                 <th>Opciones</th>
               </tr>
             </thead>
@@ -43,12 +43,12 @@
               <tr ng-repeat='dep in incidencias | startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
                 <td>{{dep.nombre}} {{dep.apellidoP}} </td>
                 <td>{{dep.fechaReporte}}</td>
-                <td>{{dep.tipo}}</td>
+                <td>{{dep.estado}}</td>
                 <td>
                     <a ng-href="#/incidencia/{{dep.id}}" class="btn btn-info btn-sm">
                     <i class="fas fa-pencil-alt" aria-hidden></i></a>
-                    <a ng-click="desactivarIncidencia()" ng-ref="#incidencia" class="btn btn-danger btn-sm">
-                      <i class="fas fa-trash" aria-hidden></i></a>
+                    <a ng-click="desactivarIncidencia(dep.id)" class="btn btn-danger btn-sm" ng-if="dep.estado != 'REVISADO'">
+                      <i class="fas fa-user-edit" aria-hidden></i></a>
                   </td>
             </tbody>
         </div>

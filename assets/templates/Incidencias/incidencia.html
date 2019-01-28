@@ -1,6 +1,16 @@
 <h1 align="center">Reporte Incidencia</h1>
 <hr>
 <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3">
+                  <h3 ng-show="incidencia.id">Fecha de Reporte</h3>
+                  <input type="text" class="form-control" ng-if="incidencia.id" ng-model="incidencia.fechaReporte"  readonly>
+            </div>
+</div>
+<hr>
+<div class="row">
       <div class="col-xs-4">
       <label for="" >Nombre</label>
       </div>
@@ -10,17 +20,19 @@
       <div class="col-xs-4">
       <label for=""> Apellido Materno </label>
       </div>
-</div>
-
-<div class="row">
+</div>                                                      
+<div class="row">    
       <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="NOMBRE"  ng-model="incidencia.nombre"  required>
+            <input type="text" class="form-control" ng-model="incidencia.nombre"   ng-show="incidencia.estado === 'REVISADO'" readonly>
+            <input type="text" class="form-control" ng-model="incidencia.nombre" required ng-show="incidencia.estado != 'REVISADO' || !incidencia.id">
       </div>
       <div class="col-xs-4">
-            <input type="text" class="form-control"  placeholder="APELLIDO PATERNO" ng-model="incidencia.apellidoP" required>
+            <input type="text" class="form-control"  ng-model="incidencia.apellidoP" ng-show="incidencia.estado === 'REVISADO'" readonly>
+            <input type="text" class="form-control"  ng-model="incidencia.apellidoP" required ng-show="incidencia.estado != 'REVISADO'">
       </div>
       <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="APELLIDO MATERNO" ng-model="incidencia.apellidoM" required>
+            <input type="text" class="form-control"  ng-model="incidencia.apellidoM" ng-show="incidencia.estado === 'REVISADO'" readonly>
+            <input type="text" class="form-control"  ng-model="incidencia.apellidoM" required ng-show="incidencia.estado != 'REVISADO'">
       </div>
 </div>
 
@@ -35,10 +47,12 @@
 
 <div class="row">
       <div class="col-xs-4">
-            <input type="email" class="form-control" placeholder="Correo" ng-model="incidencia.correo" required>
+            <input type="email" class="form-control"  ng-model="incidencia.correo" ng-show="incidencia.estado === 'REVISADO'" readonly>
+            <input type="email" class="form-control"  ng-model="incidencia.correo" required ng-show="incidencia.estado != 'REVISADO'">
       </div>
       <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="Telefono" maxlength="13"  ng-model="incidencia.telefono" required>
+            <input type="text" class="form-control"  maxlength="13"  ng-model="incidencia.telefono" ng-show="incidencia.estado === 'REVISADO'" readonly>
+            <input type="text" class="form-control"  maxlength="13"  ng-model="incidencia.telefono" required ng-show="incidencia.estado != 'REVISADO'">
       </div>
 </div>
 
@@ -56,17 +70,18 @@
       
 <div class="row" >
       <div class="col-xs-4">
-            <select id="tec" class="form-control" ng-model="incidencia.tecOrigen">
+            <select id="tec" class="form-control" ng-model="incidencia.tecOrigen" required >
                   <option value="I.T. Oaxaca" selected>Intsituto Tecnológico de Oaxaca</option> 
                   <option value="I.T. MORELOS">Intsituto Tecnológico Puebla</option> 
                   <option value="I.T. ZACATECAS">Intsituto Tecnológico ZACATECAS</option>
             </select>
       </div>
       <div class="col-xs-4">
-            <input type="text"  class="form-control" ng-model="incidencia.cargo">
+            <input type="text"  class="form-control" ng-model="incidencia.cargo" ng-if="incidencia.estado === 'REVISADO'" readonly>
+            <input type="text"  class="form-control" ng-model="incidencia.cargo" required ng-if="incidencia.estado != 'REVISADO'">
       </div>
       <div class="col-xs-4">
-            <select id="disci" class="form-control" ng-model="incidencia.disciplina">
+            <select id="disci" class="form-control" ng-model="incidencia.disciplina" required>
                   <option value="Ajedrez" selected>Ajedrez</option> 
                   <option value="Atletismo">Atletismo</option> 
                   <option value="Tenis">Tenis</option>
@@ -81,8 +96,8 @@
       <div class="col-xs-4">
             <label for=""> Tipo de Incidencia</label>
       </div>
-      <div class="col-xs-4">  
-                  <select id="tipoDes" class="form-control" ng-model="incidencia.tipo">
+      <div class="col-xs-4"> 
+                  <select id="tipoDes" class="form-control" ng-model="incidencia.tipo" required>
                         <option value="Climatológica" selected>Climatológica</option> 
                         <option value="Deportiva">Deportiva</option> 
                         <option value="Otra">Otra</option>
@@ -95,15 +110,19 @@
             <label for="">Descripcion de Incidencia</label>
       </div>
       <div class="col-xs-6"> 
-                  <textarea id="descripcion" rows="4" cols="50" class="form-control" value="" placeholder="Descripcion detallada de la eventualidad" ng-model="incidencia.descripcion"> 
-                  </textarea>
+                  <textarea id="descripcion" rows="4" cols="50" class="form-control" value="" placeholder="Descripcion detallada de la eventualidad" ng-model="incidencia.descripcion" ng-if="incidencia.estado === 'REVISADO'" readonly></textarea>
+                  <textarea id="descripcion" rows="4" cols="50" class="form-control" value="" placeholder="Descripcion detallada de la eventualidad" ng-model="incidencia.descripcion" required ng-if="incidencia.estado != 'REVISADO'"></textarea>
       </div>
 </div>
 <br>
 <div class="row">
       <div class="col-xs-1 text-right">
-            <button type="button" class="btn btn-primary" ng-click="guardarIncidencia()">
-                  <i class="far fa-save" aria-hidden></i> Enviar
+            <button type="button" class="btn btn-primary"  ng-if="incidencia.estado === 'REVISADO'" disabled="true" >
+                  <i class="far fa-save" aria-hidden></i> Guardar
+            </button>
+
+            <button type="button" class="btn btn-primary" ng-click="guardarIncidencia()" ng-if="incidencia.estado != 'REVISADO'">
+                  <i class="far fa-save" aria-hidden></i> Guardar
             </button>
       </div>
 </div>

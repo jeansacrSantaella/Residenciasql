@@ -48,7 +48,7 @@ ng.controller('todosUsuarios', ['$scope', '$http','$timeout','$routeParams',
         $scope.activar($curp);}, );
     };
 
-    $scope.ctivar=function($curp){
+    $scope.activar=function($curp){
       $http.post('/usuarios/activar',{
         curp:$curp
     }).then(

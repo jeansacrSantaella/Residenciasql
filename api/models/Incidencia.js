@@ -15,19 +15,19 @@ module.exports = {
     },
     apellidoP:{
       type:'string',
-      required:true
+      required:false
     },
     apellidoM:{
       type:'string',
-      required:true
+      required:false
     },
     correo:{
       type:'string',
-      required:true
+      required:false
     },
     telefono:{
       type:'string',
-      required: true
+      required: false
     },
     tipo:{
       type:'string',
@@ -38,7 +38,7 @@ module.exports = {
       required:true
     },
     fechaReporte:{
-      type:'number',
+      type:'string',
       required:false,
       columnType:'date'
     },

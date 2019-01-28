@@ -1,5 +1,6 @@
-ng.controller('incidenciaController', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location) {
-
+ng.controller('incidenciaController', ['$scope', '$http','$timeout','$routeParams','$location','Upload', 
+  function($scope, $http, $timeout,$routeParams,$location,Upload) {
+  
     
     $scope.$on('$viewContentLoaded', () => {
        $scope.entreandor = {};
@@ -20,7 +21,7 @@ ng.controller('incidenciaController', ['$scope', '$http', '$routeParams', '$loca
      });
    
      $scope.guardarIncidencia= function(){
-         console.log('entrando...');
+       console.log($scope.incidencia.nombre);
        $http.post('/incidencias/guardar',{incidencia:$scope.incidencia}).then(
          function success(response){
            console.log('Resultado de guardar:', response);
