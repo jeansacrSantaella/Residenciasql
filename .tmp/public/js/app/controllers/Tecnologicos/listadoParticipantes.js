@@ -8,7 +8,6 @@ ng.controller('listadoParticipantes', ['$scope', '$http','$timeout','$routeParam
     $scope.refresh();
     $scope.respuesta = [];
     console.log($scope.opc);
-
   });
 
   $scope.refresh = function() {

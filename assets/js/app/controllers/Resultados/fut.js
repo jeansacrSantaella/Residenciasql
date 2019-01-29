@@ -1,15 +1,16 @@
-ng.controller('futController', ['$scope', '$http','$timeout','$routeParams', 
-    function($scope, $http, $timeout,$routeParams) {
+ng.controller('futController', ['$scope', '$http','$routeParams',
+    function($scope, $http,$routeParams) {
 
     $scope.$on('$viewContentLoaded', () => {
       $scope.games = [];
       $scope.genero="M"; //Masculino Femenil
       $scope.jornada="J1";
-      $scope.disciplina="FUTBOL";
+      //$scope.disciplina="FUTBOL";
       $scope.genero="M";
       $scope.refresh();
       $scope.opc=2;
       $scope.opcJornada=1;
+      $scope.disciplina=$routeParams.disciplina;
     });
 
     $scope.OpcionJornada=function($opcJornada){
@@ -30,6 +31,7 @@ ng.controller('futController', ['$scope', '$http','$timeout','$routeParams',
       };
 
     $scope.refresh = function() {
+        $scope.disciplina=$routeParams.disciplina;
         document.getElementById($scope.jornada).style.color="#d32e12"; 
             $http.post('/juegos/resultados',{disciplina:$scope.disciplina,genero:$scope.genero,jornada:$scope.jornada}).then(
                 function success(response) {
@@ -53,7 +55,4 @@ ng.controller('futController', ['$scope', '$http','$timeout','$routeParams',
             $scope.genero="M";
         $scope.refresh();
     }
-
-       
-
     }]);

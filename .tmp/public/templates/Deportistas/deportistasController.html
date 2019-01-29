@@ -46,16 +46,9 @@
             <td>{{dep.curp}}</td>
             <td>{{dep.tecProcedencia}}</td>
             <td>{{dep.disciplina}}</td>
-            <td> 
-                <!--button type="button" class="btn btn-info btn-sm" ng-click="imprimir(a)">
-                <i class="fas fa-print" aria-hidden></i>
-                </button>
-                <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
-                <i class="fas fa-trash-alt" aria-hidden></i>
-                </button-->
+            <td>
                 <a ng-href="#/deportista/{{dep.curp}}" class="btn btn-info btn-sm">
                 <i class="fas fa-pencil-alt" aria-hidden></i></a>
-                
                 <a ng-click="desactivarDeportista(dep.curp)" class="btn btn-danger btn-sm">
                 <i class="fas fa-user-times" aria-hidden></i></a>
               </td>

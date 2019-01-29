@@ -26,7 +26,6 @@ ng.factory('UsuarioFactory', ['$http', '$location', '$timeout',function($http, $
     },
     logout: function(post){
       var self = this;
-
       alertify.confirm('Cerrar Sesión', '¿Está Seguro?', () => {
         $timeout(() => {
           self.usuario = {};
@@ -69,6 +68,6 @@ ng.factory('UsuarioFactory', ['$http', '$location', '$timeout',function($http, $
           }
         );
       }
-    }
+    },
   };
 }]);

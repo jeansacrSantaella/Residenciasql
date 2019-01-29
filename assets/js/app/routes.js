@@ -4,7 +4,9 @@ ng.run(['$rootScope', '$location',function($rootScope, $location) {
     console.log('INTENTO DE CAMBIO DE RUTA, Actual:', current, 'Siguiente:',next);
 
     //si es a una pagina abierta... continuar
-    if (next && next.$$route && (next.$$route.originalPath === '/disciplinas' || next.$$route.originalPath === '/evento' || next.$$route.originalPath === '/mapas' || next.$$route.originalPath === '/calendario' || next.$$route.originalPath === '/login' || next.$$route.originalPath === '/acercade' || next.$$route.originalPath === '/welcome'|| next.$$route.originalPath ==='/Ajedrez' || next.$$route.originalPath ==='/Atletismo' ||  next.$$route.originalPath ==='/Futbol' || next.$$route.originalPath ==='/Basquetbol' ||next.$$route.originalPath === 'Resultados' ||next.$$route.originalPath ==='Resultados/partidos')){
+    if (next && next.$$route && (
+      next.$$route.originalPath === '/disciplinas' || next.$$route.originalPath === '/evento' || next.$$route.originalPath === '/mapas' || next.$$route.originalPath === '/calendario' || next.$$route.originalPath === '/login' || next.$$route.originalPath === '/acercade' || next.$$route.originalPath === '/welcome'|| 
+      next.$$route.originalPath === '/VOLEIBOL_PLAYA/:disciplina' || next.$$route.originalPath ==='/VOLEIBOL/:disciplina' ||  next.$$route.originalPath ==='/FUTBOL/:disciplina' || next.$$route.originalPath ==='/BASQUETBOL/:disciplina' ||next.$$route.originalPath === 'Resultados' ||next.$$route.originalPath ==='Resultados/partidos')){
       return true;
     }
 
@@ -140,22 +142,31 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
       templateUrl:'templates/Incidencias/incidencia.html',
       controller:'incidenciaController',
     })
-    .when('/Ajedrez', {
+    /*.when('/Ajedrez', {
       templateUrl:'templates/Deportes/Ajedrez.html',
       controller:'ajedrezController',
     })
     .when('/Atletismo', {
       templateUrl:'templates/Deportes/Atletismo.html',
       controller:'atletismoController',
-    })
-    .when('/Futbol', {
+    })*/
+    .when('/FUTBOL/:disciplina', {
       templateUrl:'templates/Deportes/Futbol.html',
       controller:'futController',
     })
-    .when('/Basquetbol', {
-      templateUrl:'templates/Deportes/Basquetbol.html',
-      controller:'basquetbolController',
+    .when('/BASQUETBOL/:disciplina', {
+      templateUrl:'templates/Deportes/Futbol.html',
+      controller:'futController',
     })
+    .when('/VOLEIBOL/:disciplina', {
+      templateUrl:'templates/Deportes/Futbol.html',
+      controller:'futController',
+    })
+    .when('/VOLEIBOLPLAYA/:disciplina', {
+      templateUrl:'templates/Deportes/Futbol.html',
+      controller:'futController',
+    })
+    /*
     .when('/Resultados', {
       templateUrl:'templates/Resultados/principal.html',
       controller:'principalResultados',
@@ -163,7 +174,7 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
     .when('/Resultados/partidos', {
       templateUrl:'templates/Resultados/AgregarResultados.html',
       controller:'agregarResultado',
-    })
+    })*/
     .otherwise({
       redirectTo: '/welcome'
     });
