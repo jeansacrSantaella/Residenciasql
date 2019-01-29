@@ -6,20 +6,20 @@
         </div>
         <div class="col-xs-6">
             <select class="form-control" >
-               <option  ng-click='opcion(f)' value="femenil">Futbol Femenil</option> 
-               <option  ng-click='opcion(v)' value="varonil" selected>Futbol Varonil</option> 
+               <option  ng-click='opcion(1)' value="femenil">Futbol Femenil</option> 
+               <option  ng-click='opcion(2)' value="varonil" selected>Futbol Varonil</option> 
             </select>
         </div>
         <div class="col-xs-3"></div>
     <div>
     <br>
   </CENTER>
-	<div class="tab">
-    <button class="tablinks" onclick="openGrupo(event, 'Ga')">Jornada 1</button>
-    <button class="tablinks" onclick="openGrupo(event, 'Gb')">Jornada 2</button>
-    <button class="tablinks" onclick="openGrupo(event, 'Gc')">Jornada 3</button>
-    <button class="tablinks" onclick="openGrupo(event, 'sf')">Semifinales</button>
-    <button class="tablinks" onclick="openGrupo(event, 'f')">Finales</button>
+<div class="tab">
+    <button class="tablinks" ng-click='OpcionJornada(1)'id="J1">Jornada 1</button>
+    <button class="tablinks" ng-click='OpcionJornada(2)'id="J2">Jornada 2</button>
+    <button class="tablinks" ng-click='OpcionJornada(3)'id="J3">Jornada 3</button>
+    <button class="tablinks" ng-click='OpcionJornada(4)'id="S">Semifinales</button>
+    <button class="tablinks" ng-click='OpcionJornada(5)'id="F">Final</button>
 </div>
 <div class="panel panel-default">
         <div class="panel-body">

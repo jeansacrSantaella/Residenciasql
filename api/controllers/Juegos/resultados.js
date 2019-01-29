@@ -26,7 +26,6 @@ module.exports = {
     },
     fn: async function (inputs, exits) {
       return exits.success(await Games.find({disciplina:inputs.disciplina,genero:inputs.genero,jornada:inputs.jornada}));
-      //return exits.success(await Games.find({disciplina:inputs.genero}));
     }
 };
 
