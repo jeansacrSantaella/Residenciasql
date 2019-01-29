@@ -97,6 +97,8 @@ module.exports.routes = {
   '/incidencias/todos':{action:'incidencias/todos'},
   '/incidencias/uno':{action:'incidencias/uno'},
 
+  '/juegos/resultados':{action:'juegos/resultados'},
+
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝

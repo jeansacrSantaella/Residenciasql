@@ -150,7 +150,7 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
     })
     .when('/Futbol', {
       templateUrl:'templates/Deportes/Futbol.html',
-      controller:'futbolController',
+      controller:'futController',
     })
     .when('/Basquetbol', {
       templateUrl:'templates/Deportes/Basquetbol.html',
