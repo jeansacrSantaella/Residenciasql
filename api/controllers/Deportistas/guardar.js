@@ -24,7 +24,12 @@ module.exports = {
                     nombreCorto:'IT'
                 });
             }
-            deportista=await Deportistas.create(inputs.deportista);
+            if(await Deportistas.count({curp:inputs.deportista.curp})==0){
+                deportista=await Deportistas.create(inputs.deportista);
+            }else{
+                deportista="undefined";
+            }
+                
         }else{
         //existente
             deportista=await Deportistas.update({id:inputs.deportista.id},inputs.deportista);

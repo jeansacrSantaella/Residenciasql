@@ -34,20 +34,19 @@ function($scope, $http, $timeout,$routeParams,$location,Upload) {
       $scope.guardarDeportista= function(){
         $http.post('/deportistas/guardar',{deportista:$scope.deportista}).then(
           function success(response){
-            console.log('Resultado de guardar:', response);
             var curp;
             if(response.data.curp){
               curp=response.data.curp;
             }else if(response.data.length && response.data[0].curp){
               curp=response.data[0].curp;
             }
-            //$location.path('/deportista/'+curp).remplace();
-            alertify.success('Edicion completa.');
-            //alertify.notify('Datos Guardados.', 'custom', 2, function(){console.log('Guardado');});
+            if(response.data==='undefined')
+              alertify.success('Edicion completa.');
+            else
+              alertify.success('Edicion completa.');
             $location.path('/deportistas').remplace();
           }, function error(err){
             alertify.error('Datos invalidos o vacios');
-            console.log('Error al guardar:', err);
           }
         );
       };

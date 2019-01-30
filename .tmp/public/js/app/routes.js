@@ -175,6 +175,10 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
       templateUrl:'templates/Resultados/AgregarResultados.html',
       controller:'agregarResultado',
     })*/
+    .when('/Comedor', {
+      templateUrl:'templates/Comedor/listadoComedor.html',
+      controller:'todosComedor',
+    })
     .otherwise({
       redirectTo: '/welcome'
     });

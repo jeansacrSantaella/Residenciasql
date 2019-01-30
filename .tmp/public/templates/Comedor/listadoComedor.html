@@ -1,0 +1,82 @@
+<script>
+    // evento para recibir lo que se busca search
+    $(document).ready(function(){
+    $("#search").keyup(function(){
+    _this = this;
+    // muestrar solo los que coincidan con las busqueda
+    //id de la tabla es mytable 
+    $.each($("#mytable tbody tr"), function() {
+    if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+    $(this).hide();
+    else
+    $(this).show();
+    });
+    });
+   });
+   </script>
+<br>
+<center><h1>LISTA DE AUTORIZADOS A COMEDOR</h1></center>
+<hr><br>
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-2"></div>
+  <div class="col-xs-3"></div>
+  <div class="col-xs-5"><left><label>Busqueda de Deportista</label></left></div>
+</div>
+<div class="row">
+    <div class="col-xs-2">
+        <select class="form-control" >
+           <option  ng-click='opcion(1)' value="" selected>Deportista </option> 
+           <option  ng-click='opcion(1)' value="">Entrenador/Auxiliar</option> 
+        </select>
+    </div>
+    <div class="col-xs-2">
+    <select class="form-control" >
+           <option  ng-click='opcion(1)' value="" selected>FEMENIL </option> 
+           <option  ng-click='opcion(1)' value="">VARONIL </option> 
+        </select>
+    </div>
+    <div class="col-xs-3">
+        <select class="form-control" >
+            <option  ng-click='opcion(2)' value="" selected>BEISBOL</option>
+            <option  ng-click='opcion(2)' value="">SOFTBOL</option>
+           <option  ng-click='opcion(1)' value="">FUTBOL</option> 
+           <option  ng-click='opcion(2)' value="">AJEDREZ</option> 
+           <option  ng-click='opcion(2)' value="">NATACIÓN</option> 
+           <option  ng-click='opcion(2)' value="">ATLETISMO</option> 
+           <option  ng-click='opcion(2)' value="">BASQUETBOL </option> 
+           <option  ng-click='opcion(2)' value="">VOLEIBOL SALA </option> 
+           <option  ng-click='opcion(2)' value="">VOLEIBOL PLAYA </option> 
+           <option  ng-click='opcion(2)' value="">TENIS FEMENIL</option> 
+        </select>
+    </div>
+    <div class="col-xs-5">
+            <input type="text" class="form-control pull-left" style="width:90%" id="search" placeholder="Nombre Deportista....">
+    </div>
+  </div>
+<div>
+<hr>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table ng-init='configPages()'class='table' id="mytable">
+        <thead>
+          <tr>
+            <th>NOMBRE</th>
+            <th>TECNOLÓGICO</th>
+            <th>DISCIPLINA</th>
+            <th>OPCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat='dep in deportistas| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+            <td>{{dep.nombre}} {{dep.apellidoP}} {{dep.apellidoM}}</td>
+            <td>{{dep.tecProcedencia}}</td>
+            <td>{{dep.disciplina}}</td>
+            <td>
+              <a ng-click="desactivarDeportista(dep.curp)" class="btn btn-danger btn-sm" ng-if="dep.activo === true && dep.tipo != 'admin'">
+              <i class="fas fa-user-times" aria-hidden></i></a>
+              <a ng-click="desactivarDeportista(dep.curp)" class="btn btn-success btn-sm" ng-if="dep.activo === false && dep.tipo != 'admin'" >
+                <i class="fas fa-user-plus" aria-hidden></i></a>
+            </td>
+        </tbody>
+    </div>
