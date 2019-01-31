@@ -22,6 +22,10 @@ ng.controller('futController', ['$scope', '$http','$routeParams',
             $scope.jornada="J2";
         else if($scope.opcJornada===3)
             $scope.jornada="J3";
+        else if($scope.opcJornada===6)
+            $scope.jornada="J4";
+        else if($scope.opcJornada===7)
+            $scope.jornada="J5";
         else if($scope.opcJornada===4)
             $scope.jornada="S";
         else if($scope.opcJornada===5)
