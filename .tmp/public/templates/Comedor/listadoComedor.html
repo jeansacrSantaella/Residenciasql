@@ -16,7 +16,20 @@
    </script>
 <br>
 <center><h1>LISTA DE AUTORIZADOS A COMEDOR</h1></center>
-<hr><br>
+<hr>
+<div class="row">
+  <div class="col-xs-2">
+    <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/Comedor'}" ng-show="main.UsuarioFactory.usuario.id"
+                onclick="location.href='#/welcome'">
+                <span class="glyphicon glyphicon-chevron-left">REGRESAR</span>
+    </button> 
+  </div>
+  <div class="col-xs-2"></div>
+  <div class="col-xs-3"></div>
+  <div class="col-xs-5"></div>
+</div>
+
+<br>
 <div class="row">
   <div class="col-xs-2"></div>
   <div class="col-xs-2"></div>

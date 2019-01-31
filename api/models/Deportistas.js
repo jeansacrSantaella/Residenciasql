@@ -51,9 +51,13 @@ module.exports = {
       type:'string',
       required:true
     },
+    genero:{
+      type:'string',
+      required:true
+    },
     activo:{
       type:'boolean',
-      required:false,
+      required:false
     },
 
 

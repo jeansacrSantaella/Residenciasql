@@ -1,9 +1,16 @@
-  <CENTER>
-    <h1>{{disciplina}}</h1>
-    <hr>
+  <CENTER><h1>{{disciplina}}</h1> </CENTER>
+<hr>
+<div class="row">
+  <div class="col-xs-2">
+     <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/disciplinas'}" onclick="location.href='#/disciplinas'">
+                     <span class="glyphicon glyphicon-chevron-left">REGRESAR</span>
+      </button> 
+  </div>
+  <div class="col-xs-3">
+  </div>
+</div>
     <div class="row">
-        <div class="col-xs-3">
-        </div>
+        <div class="col-xs-3"></div>
         <div class="col-xs-6">
             <select class="form-control" >
                <option  ng-click='opcion(1)' value="femenil">RAMA FEMENIL</option> 
@@ -11,15 +18,13 @@
             </select>
         </div>
         <div class="col-xs-3"></div>
-    <div>
-    <br>
-  </CENTER>
+    <div></br><hr>
 <div class="tab">
-    <button class="tablinks" ng-click='OpcionJornada(1)'id="J1">Jornada 1</button>
-    <button class="tablinks" ng-click='OpcionJornada(2)'id="J2">Jornada 2</button>
-    <button class="tablinks" ng-click='OpcionJornada(3)'id="J3">Jornada 3</button>
-    <button class="tablinks" ng-click='OpcionJornada(4)'id="S">Semifinales</button>
-    <button class="tablinks" ng-click='OpcionJornada(5)'id="F">Final</button>
+    <button class="tablinks" ng-click='OpcionJornada(1)'id="J1">JORNADA 1</button>
+    <button class="tablinks" ng-click='OpcionJornada(2)'id="J2">JORNADA 2</button>
+    <button class="tablinks" ng-click='OpcionJornada(3)'id="J3">JORNADA 3</button>
+    <button class="tablinks" ng-click='OpcionJornada(4)'id="S">SEMIFINAL</button>
+    <button class="tablinks" ng-click='OpcionJornada(5)'id="F">FINAL</button>
 </div>
 <div class="panel panel-default">
         <div class="panel-body">
@@ -29,9 +34,9 @@
                 <th>SEDE</th>
                 <th>HORA</th>
                 <th>LOCAL</th>
-                <th> GOLES</th>
+                <th>ANOTACIONES</th>
                 <th>vs</th>
-                <th> GOLES</th>
+                <th> ANOTACIONES</th>
                 <th>VISITANTE</th>
               </tr>
             </thead>

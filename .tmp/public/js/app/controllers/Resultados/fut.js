@@ -32,7 +32,7 @@ ng.controller('futController', ['$scope', '$http','$routeParams',
 
     $scope.refresh = function() {
         $scope.disciplina=$routeParams.disciplina;
-        document.getElementById($scope.jornada).style.color="#d32e12"; 
+        document.getElementById($scope.jornada).style.color="#4747e6"; 
             $http.post('/juegos/resultados',{disciplina:$scope.disciplina,genero:$scope.genero,jornada:$scope.jornada}).then(
                 function success(response) {
                   console.log('Respuesta de obtener todos los resultados:', response);

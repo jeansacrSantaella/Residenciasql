@@ -6,7 +6,8 @@ ng.run(['$rootScope', '$location',function($rootScope, $location) {
     //si es a una pagina abierta... continuar
     if (next && next.$$route && (
       next.$$route.originalPath === '/disciplinas' || next.$$route.originalPath === '/evento' || next.$$route.originalPath === '/mapas' || next.$$route.originalPath === '/calendario' || next.$$route.originalPath === '/login' || next.$$route.originalPath === '/acercade' || next.$$route.originalPath === '/welcome'|| 
-      next.$$route.originalPath === '/VOLEIBOL_PLAYA/:disciplina' || next.$$route.originalPath ==='/VOLEIBOL/:disciplina' ||  next.$$route.originalPath ==='/FUTBOL/:disciplina' || next.$$route.originalPath ==='/BASQUETBOL/:disciplina' ||next.$$route.originalPath === 'Resultados' ||next.$$route.originalPath ==='Resultados/partidos')){
+      next.$$route.originalPath === '/VOLEIBOL_PLAYA/:disciplina' || next.$$route.originalPath ==='/VOLEIBOL/:disciplina' ||  next.$$route.originalPath ==='/FUTBOL/:disciplina' || next.$$route.originalPath ==='/BEISBOL/:disciplina' || next.$$route.originalPath ==='/BASQUETBOL/:disciplina' || next.$$route.originalPath ==='/TENIS/:disciplina' || next.$$route.originalPath ==='/SOFTBOL/:disciplina' || next.$$route.originalPath ==='/AJEDREZ/:disciplina' 
+      ||next.$$route.originalPath === 'Resultados' ||next.$$route.originalPath ==='Resultados/partidos')){
       return true;
     }
 
@@ -142,39 +143,38 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
       templateUrl:'templates/Incidencias/incidencia.html',
       controller:'incidenciaController',
     })
-    /*.when('/Ajedrez', {
-      templateUrl:'templates/Deportes/Ajedrez.html',
-      controller:'ajedrezController',
-    })
-    .when('/Atletismo', {
-      templateUrl:'templates/Deportes/Atletismo.html',
-      controller:'atletismoController',
-    })*/
     .when('/FUTBOL/:disciplina', {
-      templateUrl:'templates/Deportes/Futbol.html',
+      templateUrl:'templates/Deportes/Individuales.html',
       controller:'futController',
     })
     .when('/BASQUETBOL/:disciplina', {
-      templateUrl:'templates/Deportes/Futbol.html',
+      templateUrl:'templates/Deportes/Individuales.html',
       controller:'futController',
     })
     .when('/VOLEIBOL/:disciplina', {
-      templateUrl:'templates/Deportes/Futbol.html',
+      templateUrl:'templates/Deportes/Individuales.html',
       controller:'futController',
     })
     .when('/VOLEIBOLPLAYA/:disciplina', {
-      templateUrl:'templates/Deportes/Futbol.html',
+      templateUrl:'templates/Deportes/Individuales.html',
       controller:'futController',
     })
-    /*
-    .when('/Resultados', {
-      templateUrl:'templates/Resultados/principal.html',
-      controller:'principalResultados',
+    .when('/BEISBOL/:disciplina', {
+      templateUrl:'templates/Deportes/Individuales.html',
+      controller:'futController',
     })
-    .when('/Resultados/partidos', {
-      templateUrl:'templates/Resultados/AgregarResultados.html',
-      controller:'agregarResultado',
-    })*/
+    .when('/SOFTBOL/:disciplina', {
+      templateUrl:'templates/Deportes/Individuales.html',
+      controller:'futController',
+    })
+    .when('/TENIS/:disciplina', {
+      templateUrl:'templates/Deportes/Individuales.html',
+      controller:'futController',
+    })
+    .when('/AJEDREZ/:disciplina', {
+      templateUrl:'templates/Deportes/Individuales.html',
+      controller:'futController',
+    })
     .when('/Comedor', {
       templateUrl:'templates/Comedor/listadoComedor.html',
       controller:'todosComedor',
