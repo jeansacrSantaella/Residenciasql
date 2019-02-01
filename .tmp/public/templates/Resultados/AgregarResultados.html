@@ -1,25 +1,75 @@
-	<center><h1>Resultados</h1></center>
-<br><br>
+<CENTER><h1>{{disciplina}}</h1> </CENTER>
+<hr>
+<div class="row">
+  <div class="col-xs-2">
+     <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/Resultados'}" onclick="location.href='#/Resultados'">
+                     <span class="glyphicon glyphicon-chevron-left">REGRESAR</span>
+      </button> 
+  </div>
+  <div class="col-xs-3">
+  </div>
+</div>
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+            <select class="form-control" >
+               <option  ng-click='opcion(1)' value="femenil">RAMA FEMENIL</option> 
+               <option  ng-click='opcion(2)' value="varonil" selected>RAMA VARONIL</option> 
+            </select>
+        </div>
+        <div class="col-xs-3"></div>
+    <div></br><hr>
+<div class="tab">
+    <button class="tablinks" ng-click='OpcionJornada(1)'id="J1">JORNADA 1</button>
+    <button class="tablinks" ng-click='OpcionJornada(2)'id="J2">JORNADA 2</button>
+    <button class="tablinks" ng-click='OpcionJornada(3)'id="J3">JORNADA 3</button>
+    <button class="tablinks" ng-click='OpcionJornada(6)'id="J4" ng-show="disciplina==='AJEDREZ'">JORNADA 4</button>
+    <button class="tablinks" ng-click='OpcionJornada(7)'id="J5" ng-show="disciplina==='AJEDREZ'">JORNADA 5</button>
+    <button class="tablinks" ng-click='OpcionJornada(4)'id="S">SEMIFINAL</button>
+    <button class="tablinks" ng-click='OpcionJornada(5)'id="F">FINAL</button>
+</div>
 <div class="panel panel-default">
-		<div class="panel-body">
-		  <table ng-init='configPages()'class='table' id="mytable">
-			<thead>
-			  <tr>
-				<th>VISITA</th>
-				<th> PTS</th>
-				<th>LOCAL</th>
-				<th>PTS</th>
-				<th>Guardar</th>
-			  </tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Instituto Tecnológico de Oaxaca</td>
-					<td><input type="text" class="form-control" /></td>
-					<td>Instituto Tecnológico de Veracruz</td>
-					<td><input type="text" class="form-control" /></td>
-					<td><a ng-click="guardaResultado()" ng-ref="" class="btn btn-info btn-sm">
-					<i class="fas fa-save" aria-hidden></i></a></td>
-				</tr>
-			</tbody>
-		</div>
+        <div class="panel-body">
+          <table ng-init='configPages()'class='table' id="mytable">
+            <thead>
+              <tr>
+                <th>SEDE</th>
+                <th>HORA</th>
+                <th>LOCAL</th>
+                <th>ANOTACIONES</th>
+                <th>vs</th>
+                <th>ANOTACIONES</th>
+				<th>VISITANTE</th>
+				<th>GUARDAR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat='g in games| startFromGrid: currentPage * pageSize | limitTo:pageSize'>
+                <td>{{g.sede}}</td>
+                <td>{{g.hora}}</td>
+				<td>
+                    <input type="text" id="local" placeholder="LOCAL" title="Solo se permiten letras" class="form-control" ng-model="g.local" ng-if="g.actualizar === true" readonly/>
+                    <input type="text" id="local" placeholder="LOCAL" title="Solo se permiten letras" class="form-control" ng-model="g.local" ng-if="g.actualizar === false"/>
+                </td>
+                <td>
+                    <input type="text" id="resultado1" placeholder="Resultado1" title="Solo se permiten números"class="form-control" ng-model="g.resultado1" ng-if="g.actualizar === true" readonly/>
+                    <input type="text" id="resultado1" placeholder="Resultado1" title="Solo se permiten números"class="form-control" ng-model="g.resultado1" ng-if="g.actualizar === false"/>
+                </td>
+                <td>-</td>
+				<td>
+                    <input type="text" id="resultado2" placeholder="Resultado2" title="Solo se permiten números" class="form-control" ng-model="g.resultado2" ng-if="g.actualizar === true" readonly/>
+                    <input type="text" id="resultado2" placeholder="Resultado2" title="Solo se permiten números" class="form-control" ng-model="g.resultado2" ng-if="g.actualizar === false"/>
+                </td>
+				<td>
+                    <input type="text" id="visitante" placeholder="VISITANTE" title="Solo se permiten letras" class="form-control" ng-model="g.visita" ng-if="g.actualizar === true" readonly/>
+                    <input type="text" id="visitante" placeholder="VISITANTE" title="Solo se permiten letras" class="form-control" ng-model="g.visita" ng-if="g.actualizar === false"/>
+                </td>
+				<td> 
+                 <a ng-click="guardarResultado(g.id,g.resultado1,g.resultado2)" class="btn btn-primary btn-sm" ng-if="g.actualizar === false" >
+                <i class="fas fa-save" aria-hidden></i>GUARDAR</a>
+                <a ng-click="editarResultado(g.id)" class="btn btn-success btn-sm" ng-if="g.actualizar === true" >
+                <i class="fas fa-edit" aria-hidden></i>EDITAR</a>
+                </button>
+                </td>
+            </tbody>
+        </div>

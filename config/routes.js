@@ -98,6 +98,8 @@ module.exports.routes = {
   '/incidencias/todos':{action:'incidencias/todos'},
   '/incidencias/uno':{action:'incidencias/uno'},
 
+  '/juegos/actualizar':{action:'juegos/actualizar'},
+  '/juegos/guardar':{action:'juegos/guardar'},
   '/juegos/resultados':{action:'juegos/resultados'},
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

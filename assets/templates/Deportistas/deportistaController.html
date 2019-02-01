@@ -7,14 +7,25 @@
       });
     } );
 </script>
-<h1>
+<center><h1>
     <span ng-show="!deportista.curp">
       NUEVO DEPORTISTA
     </span>
     <span ng-show="deportista.curp">
       {{deportista.nombre}}
     </span>
-  </h1>
+  </h1></center>
+  <div class="row">
+      <div class="col-xs-2">
+        <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/deportistas'}" ng-show="main.UsuarioFactory.usuario.id"
+                    onclick="location.href='#/deportistas'">
+                    <span class="glyphicon glyphicon-chevron-left">REGRESAR</span>
+        </button> 
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="col-xs-3"></div>
+      <div class="col-xs-5"></div>
+</div>
   <br>
   <hr>
   <div class="row separado text-center" ng-if="deportista.curp">
@@ -218,12 +229,3 @@
 <div class="row">
     <div class="col-xs-1"></div>
 </div>
-<div class="row">
-    <div class="col-xs-1 text-left" >
-                <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/deportistas'}" ng-show="main.UsuarioFactory.usuario.id"
-                onclick="location.href='#/deportistas'">
-                <span class="glyphicon glyphicon-chevron-left">REGRESAR</span>
-                </button> 
-    </div>
-    <div class="col-xs-10 text-right"></div>
-</div>  

@@ -43,6 +43,10 @@ module.exports = {
     resultado2:{
       type:'number',
       required:false
+    },
+    actualizar:{
+      type:'boolean',
+      defaultsTo:false
     }
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗

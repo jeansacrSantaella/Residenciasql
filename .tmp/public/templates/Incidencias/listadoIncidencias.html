@@ -16,9 +16,9 @@
        </script>
     
     <h1 align="center">
-        Incidencias
+        INCIDENCIAS
         <a href="#/incidencia/nuevo" class="btn btn-primary btn-sm pull-right">
-          <i class="fas fa-plus" aria-hidden></i> Nueva Incidencia
+          <i class="fas fa-plus" aria-hidden></i> NUEVA INCIDENCIA
         </a>
     </h1>
     <br>
@@ -33,14 +33,14 @@
           <table ng-init='configPages()'class='table' id="mytable">
             <thead>
               <tr>
-                <th>Afectado</th>
-                <th>Fecha Reporte</th>
-                <th>Estado</th>
-                <th>Opciones</th>
+                <th>AFECTADO</th>
+                <th>FECHA DE REPORTE</th>
+                <th>ESTADO</th>
+                <th>OPCIONES</th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat='dep in incidencias | startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+              <tr ng-repeat='dep in incidencias | startFromGrid: currentPage * pageSize | limitTo:pageSize'>
                 <td>{{dep.nombre}} {{dep.apellidoP}} </td>
                 <td>{{dep.fechaReporte}}</td>
                 <td>{{dep.estado}}</td>

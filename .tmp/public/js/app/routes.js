@@ -175,6 +175,14 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
       templateUrl:'templates/Deportes/Individuales.html',
       controller:'futController',
     })
+    .when('/Resultados', {
+      templateUrl:'templates/Resultados/principal.html',
+      controller:'principalResultados',
+    })
+    .when('/Resultados/:disciplina', {
+      templateUrl:'templates/Resultados/AgregarResultados.html',
+      controller:'agregarResultado',
+    })
     .when('/Comedor', {
       templateUrl:'templates/Comedor/listadoComedor.html',
       controller:'todosComedor',

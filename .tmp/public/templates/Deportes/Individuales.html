@@ -33,13 +33,13 @@
           <table ng-init='configPages()'class='table' id="mytable">
             <thead>
               <tr>
-                <th>SEDE</th>
-                <th>HORA</th>
-                <th>LOCAL</th>
-                <th>ANOTACIONES</th>
-                <th>vs</th>
-                <th> ANOTACIONES</th>
-                <th>VISITANTE</th>
+                <th align="CENTER">SEDE</th>
+                <th align="CENTER">HORA</th>
+                <th align="CENTER">LOCAL</th>
+                <th align="CENTER">ANOTACIONES</th>
+                <th align="CENTER">VS</th>
+                <th align="CENTER">ANOTACIONES</th>
+                <th align="CENTER">VISITANTE</th>
               </tr>
             </thead>
             <tbody>
@@ -47,9 +47,9 @@
                 <td>{{g.sede}}</td>
                 <td>{{g.hora}}</td>
                 <td>{{g.local}}</td>
-                <td>{{g.resultado1}}</td>
-                <td></td>
-                <td>{{g.resultado2}}</td>
+                <td align="CENTER">{{g.resultado1}}</td>
+                <td align="CENTER">-</td>
+                <td align="CENTER">{{g.resultado2}}</td>
                 <td>{{g.visita}}</td>
             </tbody>
         </div>
