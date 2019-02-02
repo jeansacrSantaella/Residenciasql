@@ -1,13 +1,24 @@
-<h1>
-  <span ng-show="!deportista.curp">
-      Nuevo Deportista
-  </span>
-<span ng-show="deportista.curp">
-      {{deportista.nombre}}
-</span>
+<h1 ALIGN="CENTER">
+    <span ng-show="!deportista.curp">
+        NUEVO DEPORTISTA
+    </span>
+    <span ng-show="deportista.curp">
+          {{deportista.nombre}}
+    </span>
   </h1>
-<br>
   <hr>
+<div class="row">
+    <div class="col-xs-2">
+          <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/deportistas/deportista.tecProcedencia'}" ng-show="main.UsuarioFactory.usuario.id"
+            ng-click="redirecciona()">
+            <span class="glyphicon glyphicon-chevron-left">REGRESAR</span>
+          </button> 
+    </div>
+    <div class="col-xs-5"></div>
+    <div class="col-xs-5"></div>
+</div>
+  <hr>
+
 
   <div class="row separado text-center" ng-if="deportista.curp">
     <div class="col-xs-6 text-center">
@@ -173,12 +184,16 @@
   </div>
   <div class="col-xs-3">	
         <select name="Disciplina" class="form-control" ng-model="deportista.disciplina">
-           <option value="Ajedrez" selected>Ajedrez</option> 
-           <option value="Atletismo">Atletismo</option> 
-           <option value="Tenis">Tenis</option>
-           <option value="Futball">Futbol</option>
-           <option value="Natación">Natación</option> 
-           <option value="Voleyball">Voleibol</option> 
+              <option value="BEISBOL">BEISBOL</option>
+              <option value="SOFTBOL">SOFTBOL</option>
+              <option  value="FUTBOL">FUTBOL</option> 
+              <option  value="AJEDREZ">AJEDREZ</option> 
+              <option  value="NATACIÓN">NATACIÓN</option> 
+              <option  value="ATLETISMO">ATLETISMO</option> 
+              <option  value="BASQUETBOL">BASQUETBOL </option> 
+              <option  value="VOLEIBOL_SALA">VOLEIBOL SALA </option> 
+              <option  value="VOLEIBOL_PLAYA">VOLEIBOL PLAYA </option> 
+              <option  value="TENIS">TENIS</option> 
         </select>
   </div>
   <div class="col-xs-5">
@@ -188,22 +203,9 @@
       ng-model="deportista.tecProcedencia" 
       readonly />
   </div>
-</div>
-
-<br><br><br>
-<div class="row">
-    <div class="col-xs-1 text-left" >
-                <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/deportistas'}" ng-show="main.UsuarioFactory.usuario.id"
-                onclick="location.href='#/tecnologicos'">
-                <span class="glyphicon glyphicon-chevron-left">Regresar</span>
-                </button> 
-    </div>
-    <div class="col-xs-10 text-right" >
-                    
-    </div>
-    <div class="col-xs-1 text-right" >
-        <button type="button" class="btn btn-primary" ng-click="guardarDeportistaTec()">
+  <div class="col-xs-1">
+            <button type="button" class="btn btn-primary" ng-click="guardarDeportistaTec()">
             <i class="far fa-save" aria-hidden></i> Guardar
         </button>
-    </div>
-</div>  
+  </div>
+</div>

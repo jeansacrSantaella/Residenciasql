@@ -15,19 +15,27 @@
        });
        </script>
     
-    <h1 align="center">
-        INCIDENCIAS
-        <a href="#/incidencia/nuevo" class="btn btn-primary btn-sm pull-right">
-          <i class="fas fa-plus" aria-hidden></i> NUEVA INCIDENCIA
-        </a>
-    </h1>
-    <br>
-    <div class="form-group">
-      <left><label>Busqueda de Incidencia</label></left><br>
-          <center><input type="text" class="form-control pull-left" style="width:20%" id="search" placeholder="Nombre Afectado...."></center>
-    </div>
-    <br>
-         <hr>
+  <h1 align="center">INCIDENCIAS</h1>
+  <hr>
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-5"></div>
+  <div class="col-xs-5">
+    <left><label>Busqueda de Incidencia</label></left><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-2">
+    <a href="#/incidencia/nuevo" class="btn btn-primary btn-sm pull-right">
+          <i class="fas fa-user-edit" aria-hidden></i> NUEVA
+    </a>
+  </div>
+  <div class="col-xs-5"></div>
+  <div class="col-xs-5">
+    <center><input type="text" class="form-control pull-left" style="width:90%" id="search" placeholder="Nombre Afectado"></center>
+  </div>
+</div>
+<hr>
       <div class="panel panel-default">
         <div class="panel-body">
           <table ng-init='configPages()'class='table' id="mytable">

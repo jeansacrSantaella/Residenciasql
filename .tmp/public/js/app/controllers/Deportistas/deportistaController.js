@@ -51,8 +51,7 @@ function($scope, $http, $timeout,$routeParams,$location,Upload) {
         );
       };
     
-    $scope.subiendoFoto = false;
-    $scope.subirFoto = function(file){
+      $scope.subirFoto = function(file){
       if (!file) {
         return;
       }
@@ -65,10 +64,6 @@ function($scope, $http, $timeout,$routeParams,$location,Upload) {
           deportistacurp: $scope.deportista.curp
         }
       };
-
-  
-
-
       Upload.upload(carga).then((resp) => {
         console.log('deportistaController->subirFoto->response: ', resp);
         $scope.subiendoFoto = false;

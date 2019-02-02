@@ -15,19 +15,28 @@
    });
    </script>
 
-<h1 align="center">
-    USUARIOS
-    <a href="#/usuarios/nuevo" class="btn btn-primary btn-sm pull-right">
-      <i class="fas fa-plus" aria-hidden></i> NUEVO USUARIO
-    </a>
-</h1>
-<br>
-<div class="form-group">
-  <left><label>Busqueda de Usuario</label></left><br>
-      <center><input type="text" class="form-control pull-left" style="width:20%" id="search" placeholder="Nombre Usuario...."></center>
+<h1 align="center">USUARIOS</h1>
+<hr>
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-5"></div>
+  <div class="col-xs-5">
+    <left><label>Busqueda de Usuario</label></left><br>
+  </div>
 </div>
-<br>
-     <hr>
+
+<div class="row">
+  <div class="col-xs-2">
+       <a href="#/usuarios/nuevo" class="btn btn-primary btn-sm pull-right">
+      <i class="fas fa-user-edit" aria-hidden></i> NUEVO
+    </a>
+  </div>
+  <div class="col-xs-5"></div>
+  <div class="col-xs-5">
+    <center><input type="text" class="form-control pull-left" style="width:90%" id="search" placeholder="Nombre Usuario"></center>
+  </div>
+</div>
+<hr>
   <div class="panel panel-default">
     <div class="panel-body">
       <table ng-init='configPages()'class='table' id="mytable">

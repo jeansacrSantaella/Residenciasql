@@ -1,5 +1,17 @@
-<h1 align="center">Registro de Staff</h1>
-<br><br>
+<h1 align="center">CREAR NUEVO STAFF</h1>
+<hr>
+<div class="row">
+  <div class="col-xs-2">
+       <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/staffs'}" ng-show="main.UsuarioFactory.usuario.id"
+                       onclick="location.href='#/staffs'">
+                       <span class="glyphicon glyphicon-chevron-left">Regresar</span>
+       </button> 
+  </div>
+  <div class="col-xs-3"></div>
+  <div class="col-xs-2"></div>
+  <div class="col-xs-5"></div>
+</div>
+<hr>
   <div class="container">    
          <form>
             <div class="form-group row">
@@ -19,11 +31,10 @@
                               placeholder="Selecciona Area de trabajo" 
                               ng-model="staff.tareaAsignada"
                               required >
-                             <option value="Ninguna" selected>Ninguna</option>
-                             <option value="Vigilancia">Vigilancia</option>
-                             <option value="Fuego Nuevo">Fuego Nuevo</option>
-                             <option value="Comedor">Comedor</option>
-                             <option value="Guia">Guia</option>
+                             <option value="VIGILANGIA" selected>VIGILANGIA</option>
+                             <option value="FUEGO NUEVO">FUEGO NUEVO</option>
+                             <option value="COMEDOR">COMEDOR</option>
+                             <option value="GUIA">GUIA</option>
                         </select>   
                    </div>
             </div> 
@@ -63,8 +74,11 @@
                         required>
                   </div>
              </div>
+
+
             <label for="genero" class="col-xs-4 control-label">Genero:</label>
             <label for="tel"class="col-xs-6 control-label">Telefono: </label>
+
             <div class="form-group row">
                   <div class="col-xs-4">
                         <select class="form-control" id="genero" 
@@ -83,28 +97,10 @@
                         ng-model="staff.telefono"
                   required>
                  </div> 
+                 <div class="col-xs-2"></div>
+                  <div class="col-xs-2">     
+                  <button type="button" class="btn btn-primary" ng-click="guardarStaff()">
+                        <i class="far fa-save" aria-hidden></i> Registrar
+                  </button>
+                   </div>
           </div>
-    <br><br>
-
-
-    <div class="row">
-      <div class="col-xs-1"></div>
-  </div>
-  <div class="row">
-      <div class="col-xs-1 text-left" >
-                  <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/staffs'}" ng-show="main.UsuarioFactory.usuario.id"
-                  onclick="location.href='#/staffs'">
-                  <span class="glyphicon glyphicon-chevron-left">Regresar</span>
-                  </button> 
-      </div>
-      <div class="col-xs-10 text-right" >
-                      
-      </div>
-      <div class="col-xs-1 text-right" >
-          <button type="button" class="btn btn-primary" ng-click="guardarStaff()">
-              <i class="far fa-save" aria-hidden></i> Registrar
-          </button>
-      </div>
-  </div>  
-    </form>
- </div>

@@ -101,6 +101,10 @@ module.exports.routes = {
   '/juegos/actualizar':{action:'juegos/actualizar'},
   '/juegos/guardar':{action:'juegos/guardar'},
   '/juegos/resultados':{action:'juegos/resultados'},
+  '/juegos/subirpdf':{action: 'juegos/subirpdf'},
+
+  '/calendario/eventos':{action: 'calendario/eventos'},
+
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

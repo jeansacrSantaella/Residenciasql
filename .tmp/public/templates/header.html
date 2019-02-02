@@ -29,7 +29,7 @@
             <li ng-class="{'active':main.rutaActual=='/usuarios'}" ng-if="main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/usuarios">Usuarios</a></li>
             <li ng-class="{'active':main.rutaActual=='/incidencias'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/incidencias">Incidencia</a></li>
             <li ng-class="{'active':main.rutaActual=='/Resultados'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/Resultados">Resultados</a></li>
-            <li ng-class="{'active':main.rutaActual=='/Comedor'}" ng-if="main.UsuarioFactory.usuario.tipo === 'comedor'"><a href="#/Comedor">Comedor</a></li>
+            <li ng-class="{'active':main.rutaActual=='/Comedor'}" ng-if="main.UsuarioFactory.usuario.tipo === 'comedor' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/Comedor">Comedor</a></li>
           </ul>
         </li>
         <li ng-class="{'active':main.rutaActual=='/login'}" ng-show="!main.UsuarioFactory.usuario.id"><a href="#/login">Entrar</a></li>

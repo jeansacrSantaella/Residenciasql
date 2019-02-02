@@ -26,7 +26,9 @@ function($scope, $http, $timeout,$routeParams,$location,Upload) {
           }
         );
       };
-  
+  $scope.redirecciona=function(){
+    $location.path('/tecnologicos/'+$scope.nombreTec).remplace();
+  };
     
     $scope.subiendoFoto = false;
     $scope.subirFoto = function(file){
@@ -43,7 +45,6 @@ function($scope, $http, $timeout,$routeParams,$location,Upload) {
         }
       };
 
-  
 
 
       Upload.upload(carga).then((resp) => {

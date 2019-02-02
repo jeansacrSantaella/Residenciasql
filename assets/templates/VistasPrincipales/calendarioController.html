@@ -1,10 +1,39 @@
-<div class="responsiveContent">
-<!--iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;
-showNav=0&amp;showDate=0&amp;showTabs=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;
-bgcolor=%239999ff&amp;src=lttempd1uc0v3b42j77a1sr8ro%40group.calendar.google.com&amp;
-color=%232952A3&amp;ctz=America%2FMexico_City" style="border:solid 1px #777" 
- frameborder="0" scrolling="no"></iframe-->
+<!--div class="responsiveContent">
  <iframe src="https://calendar.google.com/calendar/embed?showTabs=0&amp;showTz=0&amp;mode=WEEK&amp;height=600&amp;wkst=7&amp;bgcolor=%23ffcc99&amp;src=jrh8j9t2sg8f16kr7gssnjnjp4%40group.calendar.google.com&amp;color=%23B1365F&amp;ctz=America%2FMexico_City" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
+</div-->
+<H1 align="CENTER">CALENDARIO</H1>
+<hr>
+<div class="tab" align="CENTER">
+    <button align="center" class="tablinks" ng-click='OpcionJornada(8)'id="SA">SABADO</button>
+    <button align="center" class="tablinks" ng-click='OpcionJornada(9)'id="DO">DOMINGO</button>
+    <button align="center" class="tablinks" ng-click='OpcionJornada(1)'id="J1">LUNES</button>
+    <button align="center" class="tablinks" ng-click='OpcionJornada(2)'id="J2">MARTES</button>
+    <button align="center" class="tablinks" ng-click='OpcionJornada(3)'id="J3">MIERCOLES</button>
+    <button align="center" class="tablinks" ng-click='OpcionJornada(4)'id="S">JUEVES</button>
+    <button align="center" class="tablinks" ng-click='OpcionJornada(5)'id="F">VIERNES</button>
 </div>
 
+
+
+
+<div class="panel panel-default">
+        <div class="panel-body">
+          <table ng-init='configPages()'class='table' id="mytable">
+            <thead>
+              <tr>
+                <th align="CENTER">HORA</th>
+                <th align="CENTER">SEDE</th>
+                <th align="CENTER">LOCAL</th>
+                <th align="CENTER">VS</th>
+                <th align="CENTER">VISITANTE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat='g in eventos| startFromGrid: currentPage * pageSize | limitTo:pageSize '>
+                <td>{{g.hora}}</td>
+                <td>{{g.sede}}</td>
+                <td>{{g.local}}</td>
+                <td>-</td>
+                <td>{{g.visita}}</td>
+            </tbody>
+        </div>

@@ -16,15 +16,8 @@
    </script>
 <h1 align="center">Lista de Invitados</h1>
 <h3 align="center">{{nombreTec}}</h3>
-<br>
-<div class="form-group">
-  <left><label>Busqueda </label></left><br>
-      <center><input type="text" class="form-control pull-left" style="width:20%" id="search" placeholder="Nombre o disciplina...."></center>
-</div>
-<br><br>
 <div class="row">
-    <div class="col-xs-3">
-    </div>
+    <div class="col-xs-3"></div>
     <div class="col-xs-6">
         <select class="form-control" >
            <option  ng-click='opcion(1)' value="Entrenadores">Entrenadores</option> 
@@ -34,7 +27,7 @@
     </div>
     <div class="col-xs-3"></div>
 <div>
-<br><br>
+<hr>
 <div class="row">
     <div class="col-xs-1 text-left" >
                 <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/tecnologicos'}" ng-show="main.UsuarioFactory.usuario.id"
@@ -44,11 +37,25 @@
     </div>
     <div class="col-xs-10 text-right" ></div>
     <div class="col-xs-1 text-right" >
-            <a ng-href="#/nuevoDeportista/{{nombreTec}}" class="btn btn-info btn-sm">
-                <i class="fas fa-pencil-alt" aria-hidden></i> Crear Deportista</a>
+            <a ng-href="#/nuevoDeportista/{{nombreTec}}" class="btn btn-primary btn-sm">
+                <i class="fas fa-user-edit" aria-hidden></i> NUEVO</a>
     </div>
 </div>  
-<br>
+
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-5"></div>
+    <div class="col-xs-5">
+        <left><label>Busqueda </label></left>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-5"></div>
+    <div class="col-xs-5">
+        <center><input type="text" class="form-control pull-left" style="width:90%" id="search" placeholder="Nombre o disciplina...."></center>  
+    </div>
+</div>
 <hr>
 <div  class="panel panel-default">
     <div class="panel-body">
