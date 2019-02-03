@@ -20,9 +20,9 @@
     <div class="col-xs-3"></div>
     <div class="col-xs-6">
         <select class="form-control" >
-           <option  ng-click='opcion(1)' value="Entrenadores">Entrenadores</option> 
-           <option  ng-click='opcion(2)' value="Estudiantes" selected>Estudiantes</option> 
-           <option  ng-click='opcion(3)' value="otros">Personal de Apoyo</option>
+           <option  ng-click='opcion(1)' value="Entrenadores">ENTRENADORES</option> 
+           <option  ng-click='opcion(2)' value="Estudiantes" selected>ESTUDIANTES</option> 
+           <option  ng-click='opcion(3)' value="otros">AUXILIARES</option>
         </select>
     </div>
     <div class="col-xs-3"></div>
@@ -36,12 +36,19 @@
                 </button> 
     </div>
     <div class="col-xs-10 text-right" ></div>
-    <div class="col-xs-1 text-right" >
-            <a ng-href="#/nuevoDeportista/{{nombreTec}}" class="btn btn-primary btn-sm">
-                <i class="fas fa-user-edit" aria-hidden></i> NUEVO</a>
+    <div class="col-xs-1 text-right">
+            <a ng-href="#/nuevoOtro/{{nombreTec}}" class="btn btn-primary btn-sm" ng-if="opc===1">
+                <i class="fas fa-user-edit" aria-hidden>
+                </i> NUEVO ENTRENADOR</a>
+            <a ng-href="#/nuevoDeportista/{{nombreTec}}" class="btn btn-primary btn-sm" ng-if="opc===2">
+                <i class="fas fa-user-edit" aria-hidden>
+                </i> NUEVO DEPORTISTA</a>
+            <a ng-href="#/nuevoDeportista/{{nombreTec}}" class="btn btn-primary btn-sm" ng-if="opc===3">
+                <i class="fas fa-user-edit" aria-hidden>
+                </i> NUEVO AUXILIAR</a>
     </div>
 </div>  
-
+<hr>
 <div class="row">
     <div class="col-xs-2"></div>
     <div class="col-xs-5"></div>
@@ -56,7 +63,6 @@
         <center><input type="text" class="form-control pull-left" style="width:90%" id="search" placeholder="Nombre o disciplina...."></center>  
     </div>
 </div>
-<hr>
 <div  class="panel panel-default">
     <div class="panel-body">
         <table ng-if="opc===2" ng-init='configPages()'class='table' id="mytable">
@@ -80,7 +86,11 @@
                 </div>
             </td>
         </tbody>
-
+        <div class='btn-group'ng-if="opc==2">
+            <button type='button' class='btn btn-default' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+            <button type='button' class='btn btn-default' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+            <button type='button' class='btn btn-default' ng-disabled='currentPage > respuesta.length/pageSize - 1' , ng-click='currentPage = currentPage + 1'>&raquo;</button>
+        </div>
 
       <table ng-if="opc===1" ng-init='configPages()'class='table' id="mytable">
         <thead>
@@ -102,7 +112,11 @@
                 </div>     
             </td>
         </tbody>
-
+        <div class='btn-group'ng-if="opc==1">
+            <button type='button' class='btn btn-default' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+            <button type='button' class='btn btn-default' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+            <button type='button' class='btn btn-default' ng-disabled='currentPage > respuesta.length/pageSize - 1' , ng-click='currentPage = currentPage + 1'>&raquo;</button>
+        </div>
         <table ng-if="opc===3" ng-init='configPages()'class='table' id="mytable">
         <thead>
           <tr>
@@ -123,7 +137,11 @@
                 </div>     
             </td>
         </tbody>
-
+        <div class='btn-group'ng-if="opc==3">
+            <button type='button' class='btn btn-default' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+            <button type='button' class='btn btn-default' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+            <button type='button' class='btn btn-default' ng-disabled='currentPage > respuesta.length/pageSize - 1' , ng-click='currentPage = currentPage + 1'>&raquo;</button>
+        </div>
     </div>
 </div>
 

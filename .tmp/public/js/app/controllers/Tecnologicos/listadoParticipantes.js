@@ -7,7 +7,10 @@ ng.controller('listadoParticipantes', ['$scope', '$http','$timeout','$routeParam
     $scope.opc=2;
     $scope.refresh();
     $scope.respuesta = [];
-    console.log($scope.opc);
+    $scope.opcJornada=1;
+    $scope.currentPage = 0;
+    $scope.pages=[];
+    $scope.pageSize = 10;
   });
 
   $scope.refresh = function() {
@@ -57,6 +60,7 @@ ng.controller('listadoParticipantes', ['$scope', '$http','$timeout','$routeParam
 
   $scope.opcion=function($opc){
     $scope.opc=$opc;
+    $scope.currentPage = 0;
     $scope.refresh();
 
   }

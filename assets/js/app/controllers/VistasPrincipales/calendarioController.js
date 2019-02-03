@@ -3,14 +3,19 @@ function($scope, $http) {
   
     $scope.$on('$viewContentLoaded', () => {
       $scope.eventos = [];
+      $scope.disciplina="TODOS";
       $scope.jornada="J1";
       $scope.refresh();
       $scope.opcJornada=1;
+      $scope.currentPage = 0;
+      $scope.pages=[];
+      $scope.pageSize = 10;
+      
     });
   
     $scope.refresh = function() {
     document.getElementById($scope.jornada).style.color="#4747e6"; 
-      $http.post('/calendario/eventos',{dia:$scope.jornada}).then(
+      $http.post('/calendario/eventos',{dia:$scope.jornada,disciplina:$scope.disciplina}).then(
         function success(response) {
           console.log('Respuesta de obtener todos los eventos del día:', response);
           if (response.data) {
@@ -48,8 +53,10 @@ function($scope, $http) {
         $scope.refresh();
       };
 
-
-
-
-
+    /*DISCIPLINAS */
+    $scope.busqueda=function($valor){
+        $scope.disciplina=$valor;
+        $scope.currentPage=0;
+        $scope.refresh();
+    };
 }]);

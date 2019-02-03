@@ -1,6 +1,3 @@
-<!--div class="responsiveContent">
- <iframe src="https://calendar.google.com/calendar/embed?showTabs=0&amp;showTz=0&amp;mode=WEEK&amp;height=600&amp;wkst=7&amp;bgcolor=%23ffcc99&amp;src=jrh8j9t2sg8f16kr7gssnjnjp4%40group.calendar.google.com&amp;color=%23B1365F&amp;ctz=America%2FMexico_City" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-</div-->
 <H1 align="CENTER">CALENDARIO</H1>
 <hr>
 <div class="tab" align="CENTER">
@@ -13,7 +10,74 @@
     <button align="center" class="tablinks" ng-click='OpcionJornada(5)'id="F">VIERNES</button>
 </div>
 
+<div class="container">
+   <form>
+     <div class="row">
+          <div class="col-xs-3">
+              <label class="checkbox-inline">
+                  <input type="radio" name="visualizar" ng-click="busqueda('FUTBOL')">FUTBOL
+                </label>
+          </div>
+          <div class="col-xs-3">
+              <label class="checkbox-inline">
+                  <input type="radio" name="visualizar" ng-click="busqueda('BÁSQUETBOL')">BASQUETBOL
+                </label>
+          </div>
+          <div class="col-xs-3">
+              <label class="checkbox-inline">
+                  <input type="radio" name="visualizar" ng-click="busqueda('VOLEIBOL_PLAYA')">VOLEIBOL DE PLAYA
+                </label>
+          </div>
+          <div class="col-xs-3">
+              <label class="checkbox-inline">
+                  <input type="radio" name="visualizar" ng-click="busqueda('VOLEIBOL_SALA')">VOLEIBOL DE SALA
+                </label>
+          </div>
+     </div>
 
+     <div class="row">
+        <div class="col-xs-3">
+            <label class="checkbox-inline">
+                <input type="radio" name="visualizar" ng-click="busqueda('BEISBOL')">BEISBOL
+            </label>
+        </div>
+        <div class="col-xs-3">
+            <label class="checkbox-inline">
+                <input type="radio" name="visualizar" ng-click="busqueda('SOFTBOL')">SOFTBOL
+            </label>
+        </div>
+        <div class="col-xs-3">
+            <label class="checkbox-inline">
+                <input type="radio" name="visualizar" ng-click="busqueda('TENIS')">TENIS
+            </label>
+        </div>
+        <div class="col-xs-3">
+            <label class="checkbox-inline">
+                <input type="radio" name="visualizar" ng-click="busqueda('AJEDREZ')">AJEDREZ
+            </label>
+        </div>
+   </div>
+    
+   <div class="row">
+      <div class="col-xs-3">
+          <label class="checkbox-inline">
+              <input type="radio" name="visualizar"ng-click="busqueda('NATACIÓN')">NATACIÓN
+            </label>
+      </div>
+      <div class="col-xs-3">
+          <label class="checkbox-inline">
+              <input type="radio" name="visualizar" ng-click="busqueda('ATLETISMO')">ATLETISMO
+          </label>
+      </div>
+      <div class="col-xs-3">
+          <label class="checkbox-inline">
+              <input type="radio" name="visualizar" ng-click="busqueda('TODOS')"checked>TODAS
+            </label>
+      </div>
+      <div class="col-xs-3"></div>
+ </div>      
+    </form>
+  </div>
 
 
 <div class="panel panel-default">
@@ -23,17 +87,21 @@
               <tr>
                 <th align="CENTER">HORA</th>
                 <th align="CENTER">SEDE</th>
-                <th align="CENTER">LOCAL</th>
-                <th align="CENTER">VS</th>
-                <th align="CENTER">VISITANTE</th>
+                <th align="CENTER">DISCIPLINA</th>
+                <th align="CENTER">ENCUENTRO</th>
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat='g in eventos| startFromGrid: currentPage * pageSize | limitTo:pageSize '>
                 <td>{{g.hora}}</td>
                 <td>{{g.sede}}</td>
-                <td>{{g.local}}</td>
-                <td>-</td>
-                <td>{{g.visita}}</td>
+                <td>{{g.disciplina}}</td>
+                <td>{{g.local}} vs {{g.visita}}</td>
             </tbody>
+            <div class='btn-group'>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage > eventos.length/pageSize - 1' , ng-click='currentPage = currentPage + 1'>&raquo;</button>
+            </div>
         </div>
+        

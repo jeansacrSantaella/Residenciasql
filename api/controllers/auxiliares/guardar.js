@@ -22,18 +22,13 @@ module.exports = {
       var auxiliar;
       //nuevo
       if(!inputs.auxiliar.id){
-        if(await Tecnologicos.count({nombre:inputs.auxiliar.tecOrigen})==0){
-          await Tecnologicos.create({
-              nombre:inputs.auxiliar.tecOrigen,
-              nombreCorto:'IT'
-          });
-        }
-        entrenador = await Auxiliares.create(inputs.auxiliar);
+        if(await Auxiliares.count({nombre:inputs.auxiliar.nombre})===0)
+        auxiliar = await Auxiliares.create(inputs.auxiliar);
+        else
+        auxiliar="undefined";
       }else{
-        //existente
-        entrenador = await Auxiliares.update({id:inputs.auxiliar.id},inputs.auxiliar);
+        auxiliar = await Auxiliares.update({id:inputs.auxiliar.id},inputs.auxiliar);
       }
-      sails.log('Resultado de guardar:', auxiliar);
       return exits.success(auxiliar);
     }
   };

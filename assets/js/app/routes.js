@@ -115,6 +115,11 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
       templateUrl:'templates/Tecnologicos/creaDeportista.html',
       controller:'nuevoDeportista',
     })
+    .when('/nuevoOtro/:nombreTec', {
+      templateUrl:'templates/Tecnologicos/creaOtro.html',
+      controller:'nuevoOtro',
+    })
+
     .when('/hotel/:id', {
       templateUrl:'templates/Hoteles/registroHotel.html',
       controller:'registrarHotelController',

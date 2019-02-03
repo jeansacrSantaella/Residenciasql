@@ -3,6 +3,10 @@ ng.controller('tecnologicosController', ['$scope', '$http','$timeout','$routePar
 
     $scope.$on('$viewContentLoaded', () => {
       $scope.tecnologicos = [];
+      $scope.opcJornada=1;
+      $scope.currentPage = 0;
+      $scope.pages=[];
+      $scope.pageSize = 10;
       $scope.refresh();
     });
   
