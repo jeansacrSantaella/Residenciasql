@@ -45,7 +45,7 @@
             <th>CURP</th>
             <th>TECNOLÓGICO</th>
             <th>DISCIPLINA</th>
-            <th></th>
+            <th>OPCIONES</th>
           </tr>
         </thead>
         <tbody>
@@ -55,10 +55,15 @@
             <td>{{dep.tecProcedencia}}</td>
             <td>{{dep.disciplina}}</td>
             <td>
-                <a ng-href="#/deportista/{{dep.curp}}" class="btn btn-info btn-sm">
-                <i class="fas fa-pencil-alt" aria-hidden></i></a>
+                <a ng-href="#/deportista/{{dep.curp}}" class="btn btn-primary btn-sm">
+                <i class="fas fa-pencil-alt" aria-hidden>EDITAR</i></a>
                 <a ng-click="desactivarDeportista(dep.curp)" class="btn btn-danger btn-sm">
-                <i class="fas fa-user-times" aria-hidden></i></a>
+                <i class="fas fa-user-times" aria-hidden>DESACTIVAR</i></a>
               </td>
         </tbody>
     </div>
+    <div class='btn-group'>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage > deportistas.length/pageSize - 1' , ng-click='currentPage = currentPage + 1'>&raquo;</button>
+     </div>

@@ -32,7 +32,7 @@
             <li ng-class="{'active':main.rutaActual=='/Comedor'}" ng-if="main.UsuarioFactory.usuario.tipo === 'comedor' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/Comedor">Comedor</a></li>
           </ul>
         </li>
-        <li ng-class="{'active':main.rutaActual=='/login'}" ng-show="!main.UsuarioFactory.usuario.id"><a href="#/login">Entrar</a></li>
+        <li ng-class="{'active':main.rutaActual=='/login'}" ng-show="!main.UsuarioFactory.usuario.id"><a href="#/login">Iniciar Sesión</a></li>
         <li class="fuentelista"><a href="#/acercade">Acerca de</a></li>
         <li ng-show="main.UsuarioFactory.usuario.id">
           <a href="" ng-click="main.UsuarioFactory.logout()">

@@ -39,28 +39,31 @@
 <div class="row">
     <div class="col-xs-2">
         <select class="form-control" >
-           <option  ng-click='opcion(1)' value="" selected>Deportista </option> 
-           <option  ng-click='opcion(1)' value="">Entrenador/Auxiliar</option> 
+           <option  ng-click="opcionTipo('DEPORTISTA')">Deportista </option> 
+           <option  ng-click='opcionTipo(OTROS)'>Entrenador/Auxiliar</option> 
+           <option  ng-click='opcionTipo(AMBOS)' selected value="">Entrenador/Auxiliar</option> 
         </select>
     </div>
     <div class="col-xs-2">
     <select class="form-control" >
-           <option  ng-click='opcion(1)' value="" selected>FEMENIL </option> 
-           <option  ng-click='opcion(1)' value="">VARONIL </option> 
+           <option  ng-click='opcionGenero(AMBOS)'  selected>AMBOS </option> 
+           <option  ng-click='opcionGenero(H)'  >FEMENIL </option> 
+           <option  ng-click='opcionGenero(M)' >VARONIL </option> 
         </select>
     </div>
     <div class="col-xs-3">
         <select class="form-control" >
-            <option  ng-click='opcion(2)' value="" selected>BEISBOL</option>
-            <option  ng-click='opcion(2)' value="">SOFTBOL</option>
-           <option  ng-click='opcion(1)' value="">FUTBOL</option> 
-           <option  ng-click='opcion(2)' value="">AJEDREZ</option> 
-           <option  ng-click='opcion(2)' value="">NATACIÓN</option> 
-           <option  ng-click='opcion(2)' value="">ATLETISMO</option> 
-           <option  ng-click='opcion(2)' value="">BASQUETBOL </option> 
-           <option  ng-click='opcion(2)' value="">VOLEIBOL SALA </option> 
-           <option  ng-click='opcion(2)' value="">VOLEIBOL PLAYA </option> 
-           <option  ng-click='opcion(2)' value="">TENIS</option> 
+           <option  ng-click='opcion(TODOS)'  selected>TODOS</option>
+           <option  ng-click='opcion(BEISBOL)' >BEISBOL</option>
+           <option  ng-click='opcion(SOFTBOL)' >SOFTBOL</option>
+           <option  ng-click='opcion(FUTBOL)' >FUTBOL</option> 
+           <option  ng-click='opcion(AJEDREZ)' >AJEDREZ</option> 
+           <option  ng-click='opcion(NATACIÓN)' >NATACIÓN</option> 
+           <option  ng-click='opcion(ATLETISMO)' >ATLETISMO</option> 
+           <option  ng-click='opcion(BASQUETBOL)' >BASQUETBOL </option> 
+           <option  ng-click='opcion(VOLEIBOL_SALA)' >VOLEIBOL SALA </option> 
+           <option  ng-click='opcion(VOLEIBOL_PLAYA)' >VOLEIBOL PLAYA </option> 
+           <option  ng-click='opcion(TENIS)'>TENIS</option> 
         </select>
     </div>
     <div class="col-xs-5">
@@ -68,6 +71,14 @@
     </div>
   </div>
 <div>
+<hr>
+<div class="row">
+<div class="col-xs-2">
+      <button type="button" class="btn btn-info btn-sm" onclick="exportTableToCSV('Reporte.csv')">
+          <i class="fas fa-print" aria-hidden>EXPORTAR</i>
+      </button>
+</div>
+</div>
 <hr>
   <div class="panel panel-default">
     <div class="panel-body">
@@ -81,7 +92,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat='dep in deportistas| startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (dep.nombre)'>
+          <tr ng-repeat='dep in deportistas| startFromGrid: currentPage * pageSize | limitTo:pageSize'>
             <td>{{dep.nombre}} {{dep.apellidoP}} {{dep.apellidoM}}</td>
             <td>{{dep.tecProcedencia}}</td>
             <td>{{dep.disciplina}}</td>
@@ -91,5 +102,43 @@
               <a ng-click="desactivarDeportista(dep.curp)" class="btn btn-success btn-sm" ng-if="dep.activo === false && dep.tipo != 'admin'" >
                 <i class="fas fa-user-plus" aria-hidden></i></a>
             </td>
-        </tbody>
+            </tr>
+          </tbody>
+        </table>
     </div>
+    <script>
+    function downloadCSV(csv, filename) {
+    var csvFile;
+    var downloadLink;
+    // CSV file
+    csvFile = new Blob([csv], {type: "text/csv"});
+    // Download link
+    downloadLink = document.createElement("a");
+    // File name
+    downloadLink.download = filename;
+    // Create a link to the file
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    // Hide download link
+    downloadLink.style.display = "none";
+    // Add the link to DOM
+    document.body.appendChild(downloadLink);
+    // Click download link
+    downloadLink.click();
+}
+function exportTableToCSV(filename) {
+    var csv = [];
+    var rows = document.querySelectorAll("table tr");
+    
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+        
+        for (var j = 0; j < cols.length-1; j++) 
+            row.push(cols[j].innerText);
+        
+        csv.push(row.join(","));        
+    }
+
+    // Download CSV file
+    downloadCSV(csv.join("\n"), filename);
+}
+    </script>

@@ -3,7 +3,7 @@
   "description": "a Sails application",
   "main": "app.js",
   "authors": [
-    "erik"
+    "JEANSACR"
   ],
   "license": "MIT",
   "homepage": "",
@@ -20,6 +20,7 @@
     "angular-route": "^1.7.4",
     "bootstrap": "3.3.7",
     "alertify-js": "^1.11.1",
-    "fontawesome": "^5.3.1"
+    "fontawesome": "^5.3.1",
+    "ng-csv": "^0.3.6"
   }
 }

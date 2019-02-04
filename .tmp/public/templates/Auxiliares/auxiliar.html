@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col-xs-3">
-    <label for="">Nombre</label>
+    <label for="" ng-if="!auxiliar.id">Nombre</label>
   </div>
   <div class="col-xs-3">
     <label for="">Disciplinas</label>
@@ -20,7 +20,8 @@
 
 <div class="row">
   <div class="col-xs-3">
-    <input type="text" class="form-control" ng-model="auxiliar.nombre" />
+    <input type="text" class="form-control" ng-model="auxiliar.nombre" ng-if="auxiliar.id" readonly/>
+    <input type="text" class="form-control" ng-model="auxiliar.nombre" ng-if="!auxiliar.id"/>
   </div>
   <div class="col-xs-3">
     <input type="text"
@@ -31,11 +32,8 @@
     class="form-control" ng-model="auxiliar.disciplinas" />
   </div>
   <div class="col-xs-4">
-    <input type="text" name="TecOrigen"
-    placeholder="Tecnológico de origen"
-    required
-    title="TecOrigen"
-    class="form-control" ng-model="auxiliar.tecOrigen"  />
+    <input type="text" name="TecOrigen" placeholder="Tecnológico de origen" required title="TecOrigen" class="form-control" ng-model="auxiliar.tecOrigen"  ng-if="auxiliar.id" readonly/>
+    <input type="text" name="TecOrigen" placeholder="Tecnológico de origen" required title="TecOrigen" class="form-control" ng-model="auxiliar.tecOrigen"  ng-if="!auxiliar.id"/>
   </div>
   <div class="col-xs-2">
   <select type="text" class="form-control" ng-model="auxiliar.tipo">

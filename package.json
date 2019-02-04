@@ -13,6 +13,8 @@
     "connect-mongo": "^2.0.1",
     "grunt": "1.0.1",
     "moment": "^2.22.2",
+    "ng-csv": "^0.3.6",
+    "ngcsv": "^0.2.0",
     "sails": "^1.0.2",
     "sails-hook-grunt": "^3.0.2",
     "sails-hook-organics": "^0.14.5",

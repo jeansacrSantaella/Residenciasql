@@ -16,9 +16,6 @@
    </script>
 
 <h1 align="center">AUXILIARES ACTIVOS</h1>
-    <!--a href="#/auxiliar/nuevo" class="btn btn-primary btn-sm pull-right">
-      <i class="fas fa-plus" aria-hidden></i> Nuevo Auxiliar
-    </a-->
 <br>
 <div class="row">
   <div class="col-xs-2"></div>
@@ -46,7 +43,8 @@
           <tr>
             <th>NOMBRE</th>
             <th>Tipo</th>
-            <th>Tec. de Procedencia</th>
+            <th>TECNOLÓGICO</th>
+            <th>OPCIONES</th>
           </tr>
         </thead>
         <tbody>
@@ -55,14 +53,16 @@
             <td>{{aux.tipo}}</td>
             <td>{{aux.tecOrigen}}</td>
             <td> 
-                <button type="button" class="btn btn-info btn-sm" ng-click="imprimir(a)">
-                <i class="fas fa-print" aria-hidden></i>
-                </button>
-                <button type="button" class="btn btn-warning btn-sm" ng-click="borrar(a)">
-                <i class="fas fa-trash-alt" aria-hidden></i>
-                </button>
-                <a ng-href="#/auxiliar/{{aux.id}}" class="btn btn-info btn-sm">
-                <i class="fas fa-pencil-alt" aria-hidden></i></a>
+                <a ng-href="#/auxiliar/{{aux.id}}" class="btn btn-primary btn-sm">
+                <i class="fas fa-pencil-alt" aria-hidden>EDITAR</i></a>
+
+                <a ng-click="desactivarAuxiliar(aux.id)" class="btn btn-danger btn-sm">
+                <i class="fas fa-user-times" aria-hidden>DESACTIVAR</i></a>
             </td>
         </tbody>
     </div>
+     <div class='btn-group'>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+                <button type='button' class='btn btn-default' ng-disabled='currentPage > auxiliares.length/pageSize - 1' , ng-click='currentPage = currentPage + 1'>&raquo;</button>
+     </div>

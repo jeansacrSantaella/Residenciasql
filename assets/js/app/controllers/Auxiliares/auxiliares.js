@@ -3,6 +3,9 @@ ng.controller('auxiliaresController', ['$scope', '$http','$timeout','$routeParam
   
     $scope.$on('$viewContentLoaded', () => {
       $scope.auxiliares = [];
+      $scope.currentPage = 0;
+      $scope.pages=[];
+      $scope.pageSize = 10;
       $scope.refresh();
     });
   
@@ -20,6 +23,27 @@ ng.controller('auxiliaresController', ['$scope', '$http','$timeout','$routeParam
         }
       );
     };
+
+    $scope.desactivarAuxiliar= function($id){
+      alertify.confirm('Desea desactivar auxiliar?', 
+      function(){ 
+        $scope.desactivar($id);}, );
+    };
+
+    $scope.desactivar=function($id){
+      $http.post('/auxiliares/desactivar',{
+        id:$id
+    }).then(
+      function success(response){
+        console.log('Resultado de guardar:', response);
+        $scope.refresh();
+        alertify.success('Desactivación completa.');
+      }, function error(err){
+        alertify.error('No se pudo desactivar.');
+        console.log('Error al Desactivar:', err);
+      }
+    );       
+    }
   
   }]);
   

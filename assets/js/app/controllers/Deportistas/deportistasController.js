@@ -3,6 +3,9 @@ ng.controller('deportistasController', ['$scope', '$http','$timeout','$routePara
 
     $scope.$on('$viewContentLoaded', () => {
       $scope.deportistas = [];
+      $scope.currentPage = 0;
+      $scope.pages=[];
+      $scope.pageSize = 10;
       $scope.refresh();
     });
   
@@ -43,7 +46,7 @@ ng.controller('deportistasController', ['$scope', '$http','$timeout','$routePara
     };
 
     $scope.desactivarDeportista= function($curp){
-      alertify.confirm('Desea desactivar usuario?', 
+      alertify.confirm('Desea desactivar Deportista?', 
       function(){ 
         $scope.desactivar($curp);}, );
     };

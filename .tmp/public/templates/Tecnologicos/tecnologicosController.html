@@ -48,8 +48,8 @@
                 <tr ng-repeat='tec in tecnologicos | startFromGrid: currentPage * pageSize | limitTo:pageSize', ng-click='seleccionarUsuario (tec.nombre)'>
                   <td>{{tec.nombre}}</td>
                   <td> 
-                    <a ng-href="#/tecnologicos/{{tec.nombre}}" class="btn btn-info btn-sm">
-                      <i class="fas fa-pencil-alt" aria-hidden></i></a>
+                    <a ng-href="#/tecnologicos/{{tec.nombre}}" class="btn btn-primary btn-sm">
+                      <i class="fas fa-pencil-alt" aria-hidden>ASISTENCIA</i></a>
                   </td>
               </tbody>
               <div class='btn-group'>

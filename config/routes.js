@@ -77,6 +77,7 @@ module.exports.routes = {
   
   '/auxiliares/entrenadores-tec':{action: 'auxiliares/entrenadores-tec'},
   '/auxiliares/otros-tec':{action: 'auxiliares/otros-tec'},
+  '/auxiliares/desactivar':{action: 'auxiliares/desactivar'},
   '/auxiliares/activar':{action: 'auxiliares/activar'},
   '/auxiliares/guardar':{action: 'auxiliares/guardar'},
   '/auxiliares/todos':{action: 'auxiliares/todos'},
