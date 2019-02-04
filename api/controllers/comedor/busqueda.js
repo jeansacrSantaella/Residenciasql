@@ -33,7 +33,8 @@ module.exports = {
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*--------------------------------------------------------------------------------------------------------1*/
-                            busqueda=await Invitados.find().sort('tecProcedencia ASC');
+                            //busqueda=await Invitados.find().sort('tecProcedencia ASC');
+                            busqueda=await Invitados.find().sort([{ tecProcedencia: 'ASC' },{ disciplina: 'ASC' },]);
                             break;
                             default:/*-------------------------------------------------------------------------------------------------------------2*/
                             busqueda=await Invitados.find({disciplina:inputs.disciplina}).sort('tecProcedencia ASC');

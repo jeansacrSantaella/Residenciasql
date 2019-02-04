@@ -54,8 +54,6 @@ module.exports.routes = {
   '/usuarios/actualizar':{action: 'usuarios/actualizar'},
   '/usuarios/desactivar':{action: 'usuarios/desactivar'},
 
-
-
   '/alumnos/guardar':{action: 'alumnos/guardar'},
   '/alumnos/todos':{action: 'alumnos/todos'},
   '/alumnos/uno':{action: 'alumnos/uno'},
@@ -89,6 +87,7 @@ module.exports.routes = {
   '/hoteles/todos':{action:'hoteles/todos'},
   '/hoteles/uno':{action:'hoteles/uno'},
   
+  '/comedor/busqueda':{action:'comedor/busqueda'},
 
   '/staff/guardar':{action:'staff/guardar'},
   '/staff/todos':{action:'staff/todos'},

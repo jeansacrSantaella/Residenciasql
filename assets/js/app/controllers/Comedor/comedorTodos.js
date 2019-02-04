@@ -9,7 +9,7 @@ ng.controller('todosComedor', ['$scope', '$http',
         $scope.refresh();
       });
     $scope.refresh = function() {
-        $http.get('/comedor/busqueda',{tipo:$scope.tipo,genero:$scope.genero,disciplina:$scope.disciplina}).then(
+        $http.post('/comedor/busqueda',{tipo:$scope.tipo,genero:$scope.genero,disciplina:$scope.disciplina}).then(
           function success(response) {
             console.log('Respuesta de obtener todos los invitados:', response);
             if (response.data) {
@@ -45,15 +45,15 @@ ng.controller('todosComedor', ['$scope', '$http',
       };
 
       $scope.opcionTipo=function($valor){
-          $scope.tipo="TODOS";
+          $scope.tipo=$valor;
           $scope.refresh();
       };
       $scope.opcionGenero=function($valor){
-          $scope.genero="M";
+          $scope.genero=$valor;
           $scope.refresh();
       };
       $scope.opcionDisciplina=function($valor){
-          $scope.disciplina="$valor";
+          $scope.disciplina=$valor;
           $scope.refresh();
       };
 

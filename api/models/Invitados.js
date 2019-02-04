@@ -16,15 +16,15 @@ module.exports = {
       type:'string',
       required:true
     },
+    genero:{
+      type:'string',
+      required:true
+    },
     tecProcedencia:{
       type:'string',
       required:true
     },
     disciplina:{
-      type:'string',
-      required:true
-    },
-    tipoComida:{
       type:'string',
       required:true
     },
@@ -36,6 +36,11 @@ module.exports = {
       type:'boolean',
       required:true
     },
+    tipo:{
+      type:'string',
+      required:true
+    }
+
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
