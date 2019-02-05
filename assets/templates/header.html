@@ -24,8 +24,8 @@
             <li ng-class="{'active':main.rutaActual=='/usuarios'}" ng-if="main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/usuarios">Usuarios</a></li>
             <li ng-class="{'active':main.rutaActual=='/auxiliares'}" ng-if="main.UsuarioFactory.usuario.tipo === 'deportivo' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/auxiliares">Auxiliares</a></li>
             <li ng-class="{'active':main.rutaActual=='/tecnologicos'}" ng-if="main.UsuarioFactory.usuario.tipo === 'deportivo' || main.UsuarioFactory.usuario.tipo === 'registro' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/tecnologicos">Tecnológico</a></li>
-            <li ng-class="{'active':main.rutaActual=='/incidencias'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/incidencias">Incidencia</a></li>
-            <li ng-class="{'active':main.rutaActual=='/Resultados'}" ng-show="main.UsuarioFactory.usuario.id"><a href="#/Resultados">Resultados</a></li>
+            <li ng-class="{'active':main.rutaActual=='/incidencias'}" ng-if="main.UsuarioFactory.usuario.tipo ==='admin' || main.UsuarioFactory.usuario.tipo === 'deportivo'"><a href="#/incidencias">Incidencia</a></li>
+            <li ng-class="{'active':main.rutaActual=='/Resultados'}" ng-show="main.UsuarioFactory.usuario.tipo ==='admin' || main.UsuarioFactory.usuario.tipo === 'deportivo'"><a href="#/Resultados">Resultados</a></li>
             <li ng-class="{'active':main.rutaActual=='/Comedor'}" ng-if="main.UsuarioFactory.usuario.tipo === 'comedor' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/Comedor">Comedor</a></li>
             <li ng-class="{'active':main.rutaActual=='/staffs'}" ng-if="main.UsuarioFactory.usuario.tipo ==='staff' || main.UsuarioFactory.usuario.tipo ==='admin'"><a href="#/staffs">Staff</a></li>
             <li ng-class="{'active':main.rutaActual=='/deportistas'}" ng-if="main.UsuarioFactory.usuario.tipo === 'deportivo' || main.UsuarioFactory.usuario.tipo === 'admin'"><a href="#/deportistas">Deportistas</a></li>

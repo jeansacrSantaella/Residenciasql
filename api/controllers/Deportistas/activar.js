@@ -30,6 +30,8 @@ module.exports = {
                     activo:true,
                     tipo:'DEPORTISTA'
                 });
+        }else{
+            await Invitados.update({clave:inputs.curp}).set({activo:true});
         }
         return exits.success('Activado');
     }  

@@ -45,7 +45,7 @@ ng.controller('todosUsuarios', ['$scope', '$http','$timeout','$routeParams',
     $scope.activarUsuario= function($curp){
       alertify.confirm('Desea Activar Usuario?',
        function(){
-        $scope.activar($curp);}, );
+        $scope.activar($curp);}, ).setHeader('<em>Confirmar Activación </em> ');
     };
 
     $scope.activar=function($curp){
