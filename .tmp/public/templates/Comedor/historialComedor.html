@@ -39,20 +39,22 @@
 <div class="row">
     <div class="col-xs-2">
         <select class="form-control" >
-           <option  ng-click="" selected>DESAYUNO </option> 
-           <option  ng-click="">COMIDA</option> 
-           <option  ng-click="">CENA</option> 
+           <option  ng-click="tipoSelect('TODAS')" selected>TODOS </option> 
+           <option  ng-click="tipoSelect('DESAYUNO')" >DESAYUNO </option> 
+           <option  ng-click="tipoSelect('COMIDA')">COMIDA</option> 
+           <option  ng-click="tipoSelect('CENA')">CENA</option> 
         </select>
     </div>
     <div class="col-xs-2">
     <select class="form-control" >
-           <option  ng-click=""selected>DOMINGO</option> 
-           <option  ng-click="" >LUNES</option> 
-           <option  ng-click="" >MARTES</option> 
-           <option  ng-click="" >MIERCOLES</option> 
-           <option  ng-click="" >JUEVES</option> 
-           <option  ng-click="" >VIERNES</option> 
-           <option  ng-click="" >SABADO</option> 
+           <option  ng-click="dia('TODAS')"selected>TODOS</option> 
+           <option  ng-click="dia('Domingo')">DOMINGO</option> 
+           <option  ng-click="dia('LUNES')" >LUNES</option> 
+           <option  ng-click="dia('MARTES')" >MARTES</option> 
+           <option  ng-click="dia('MIERCOLES')" >MIERCOLES</option> 
+           <option  ng-click="dia('JUEVES')" >JUEVES</option> 
+           <option  ng-click="dia('VIERNES')" >VIERNES</option> 
+           <option  ng-click="dia('SABADO')" >SABADO</option> 
         </select>
     </div>
     <div class="col-xs-3">
@@ -92,7 +94,9 @@
             <th>NOMBRE</th>
             <th>TECNOLÓGICO</th>
             <th>DISCIPLINA</th>
-            <th>OPCIONES</th>
+            <th>TIPO</th>
+            <th>FECHA ACCESO</th>
+            <th>HORA</th>
           </tr>
         </thead>
         <tbody>
@@ -100,9 +104,9 @@
             <td>{{dep.nombre}}</td>
             <td>{{dep.tecProcedencia}}</td>
             <td>{{dep.disciplina}}</td>
-            <td>
-              <a ng-click="desactivar(dep.id)" class="btn btn-danger btn-sm">
-                <i class="fas fa-user-times" aria-hidden> DESACTIVAR</i></a>
+            <td>{{dep.tipo}}</td>
+            <td>{{dep.fechaAcceso}}</td>
+            <td>{{dep.hora}}</td>
             </tr>
           </tbody>
         </table>

@@ -24,7 +24,7 @@ ng.controller('todosUsuarios', ['$scope', '$http','$timeout','$routeParams',
     $scope.desactivarUsuario= function($curp){
       alertify.confirm('Desea Desactivar Usuario?',
        function(){
-        $scope.desactivar($curp);}, );
+        $scope.desactivar($curp);}, ).setHeader('<em>Confirmar Desactivación </em> ');
     };
 
     $scope.desactivar=function($curp){

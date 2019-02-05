@@ -24,7 +24,7 @@ ng.controller('incidenciasController', ['$scope', '$http','$timeout','$routePara
     $scope.desactivarIncidencia= function($id){
       alertify.confirm('¿Desea Marcar como revisado?', 
       function(){ 
-        $scope.desactivar($id);}, );
+        $scope.desactivar($id);}, ).setHeader('<em>Confirmar actualización de estado </em> ');
     };
     $scope.desactivar=function($id){
       $http.post('/incidencias/revisado',{

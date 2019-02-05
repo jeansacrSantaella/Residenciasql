@@ -27,7 +27,7 @@ ng.controller('auxiliaresController', ['$scope', '$http','$timeout','$routeParam
     $scope.desactivarAuxiliar= function($id){
       alertify.confirm('Desea desactivar auxiliar?', 
       function(){ 
-        $scope.desactivar($id);}, );
+        $scope.desactivar($id);}, ).setHeader('<em>Confirmar Desactivación </em> ');
     };
 
     $scope.desactivar=function($id){

@@ -26,7 +26,7 @@ ng.controller('todosComedor', ['$scope', '$http',
       $scope.desactivar= function($id){
         alertify.confirm('Desea desactivar invitado?', 
         function(){ 
-          $scope.desactivarInvitado($id);}, );
+          $scope.desactivarInvitado($id);}, ).setHeader('<em>Confirmar Desactivación </em> ');
       };
   
       $scope.desactivarInvitado=function($id){

@@ -6,14 +6,14 @@
  */
 module.exports = {
     friendlyName:'BUSQUEDA',
-    description: 'BUSQUEDA DE HistorialComedor A COMEDOR',
+    description: 'BUSQUEDA DE Historial A COMEDOR',
     inputs:{
-        horaAcceso:
+        tipo:
         {
             type:'string',
             required:true
         },
-        dia:
+        fechaAcceso:
         {
             type:'string',
             required:true
@@ -30,19 +30,19 @@ module.exports = {
     },
     fn: async function (inputs,exits){
         var busqueda;
-        switch(inputs.horaAcceso)
+        switch(inputs.tipo)
         {
             case "TODAS":/*------------------------------------------------------------------------------------------------------------------------13*/
-                switch(inputs.dia)
+                switch(inputs.fechaAcceso)
                 {
                     case "TODAS":/*----------------------------------------------------------------------------------------------------------------9*/
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*--------------------------------------------------------------------------------------------------------1*/
-                            busqueda=await HistorialComedor.find({activo:true}).sort([{ tecProcedencia: 'ASC' },{ disciplina: 'ASC' },]);
+                            busqueda=await Historial.find().sort([{ tecProcedencia: 'ASC' },{ disciplina: 'ASC' },]);
                             break;
                             default:/*-------------------------------------------------------------------------------------------------------------2*/
-                            busqueda=await HistorialComedor.find({activo:true,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await Historial.find({disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;
@@ -51,10 +51,10 @@ module.exports = {
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*---------------------------------------------------------------------------------------------------------3*/
-                            busqueda=await HistorialComedor.find({activo:true,dia:inputs.dia}).sort('tecProcedencia ASC');
+                            busqueda=await Historial.find({fechaAcceso:inputs.fechaAcceso}).sort('tecProcedencia ASC');
                             break;
                             default:/*--------------------------------------------------------------------------------------------------------------4*/
-                            busqueda=await HistorialComedor.find({activo:true,dia:inputs.dia,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await Historial.find({fechaAcceso:inputs.fechaAcceso,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;
@@ -62,16 +62,16 @@ module.exports = {
             break;
                 
             default:/*------------------------------------------------------------------------------------------------------------------------------14*/
-                switch(inputs.dia)
+                switch(inputs.fechaAcceso)
                 {
                     case "TODAS":/*-----------------------------------------------------------------------------------------------------------------11*/
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*---------------------------------------------------------------------------------------------------------5*/
-                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso}).sort('tecProcedencia ASC');
+                            busqueda=await Historial.find({tipo:inputs.tipo}).sort('tecProcedencia ASC');
                             break;
                             default:/*--------------------------------------------------------------------------------------------------------------6*/
-                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await Historial.find({tipo:inputs.tipo,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;
@@ -80,16 +80,16 @@ module.exports = {
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*---------------------------------------------------------------------------------------------------------11*/
-                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso,dia:inputs.dia}).sort('tecProcedencia ASC');
+                            busqueda=await Historial.find({tipo:inputs.tipo,fechaAcceso:inputs.fechaAcceso}).sort('tecProcedencia ASC');
                             break;
                             default:/*--------------------------------------------------------------------------------------------------------------12*/
-                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso,dia:inputs.dia,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await Historial.find({tipo:inputs.tipo,fechaAcceso:inputs.fechaAcceso,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;
                 }
             break;
-        }
+    }
         return exits.success(busqueda);
     }
 };

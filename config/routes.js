@@ -88,7 +88,7 @@ module.exports.routes = {
   '/hoteles/uno':{action:'hoteles/uno'},
   
   '/comedor/busqueda':{action:'comedor/busqueda'},
-  '/comedor/historialComedor':{action:'comedor/historialComedor'},
+  '/comedor/historial':{action:'comedor/historial'},
   '/invitado/desactivar':{action:'invitado/desactivar'},
 
   '/staff/guardar':{action:'staff/guardar'},

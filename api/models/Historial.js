@@ -25,11 +25,18 @@ module.exports = {
       type:'string',
       required:true
     },
-    horaAcceso:{
+    fechaAcceso:{
+      type:'string',
+      required:true
+    },
+    tipo:{
+      type:'string',
+      required:true
+    },
+    hora:{
       type:'string',
       required:true
     }
-
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

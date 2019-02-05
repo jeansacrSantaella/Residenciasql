@@ -26,7 +26,6 @@ ng.controller('deportistasController', ['$scope', '$http','$timeout','$routePara
   
     $scope.borrar = function(deportista) {
       alertify.confirm('Borrar Deportista', '¿Está Seguro que desea eliminar a '+deportista.nombre+'?', () => {
-  
         $http.post('/deportistas/borrar', {
           id: deportista.id
         }).then(
@@ -48,7 +47,7 @@ ng.controller('deportistasController', ['$scope', '$http','$timeout','$routePara
     $scope.desactivarDeportista= function($curp){
       alertify.confirm('Desea desactivar Deportista?', 
       function(){ 
-        $scope.desactivar($curp);}, );
+        $scope.desactivar($curp);}, ).setHeader('<em>Confirmar Desactivación </em> ');
     };
 
     $scope.desactivar=function($curp){
