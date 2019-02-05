@@ -1,13 +1,19 @@
+/**
+ * HistorialComedorController
+ *
+ * @description :: Server-side actions for handling incoming requests.
+ * @help        :: See https://sailsjs.com/docs/concepts/actions
+ */
 module.exports = {
     friendlyName:'BUSQUEDA',
-    description: 'BUSQUEDA DE INVITADOS A COMEDOR',
+    description: 'BUSQUEDA DE HistorialComedor A COMEDOR',
     inputs:{
-        tipo:
+        horaAcceso:
         {
             type:'string',
             required:true
         },
-        genero:
+        dia:
         {
             type:'string',
             required:true
@@ -24,20 +30,19 @@ module.exports = {
     },
     fn: async function (inputs,exits){
         var busqueda;
-        switch(inputs.tipo)
+        switch(inputs.horaAcceso)
         {
-            case "TODOS":/*------------------------------------------------------------------------------------------------------------------------13*/
-                switch(inputs.genero)
+            case "TODAS":/*------------------------------------------------------------------------------------------------------------------------13*/
+                switch(inputs.dia)
                 {
-                    case "AMBAS":/*----------------------------------------------------------------------------------------------------------------9*/
+                    case "TODAS":/*----------------------------------------------------------------------------------------------------------------9*/
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*--------------------------------------------------------------------------------------------------------1*/
-                            //busqueda=await Invitados.find().sort('tecProcedencia ASC');
-                            busqueda=await Invitados.find({activo:true}).sort([{ tecProcedencia: 'ASC' },{ disciplina: 'ASC' },]);
+                            busqueda=await HistorialComedor.find({activo:true}).sort([{ tecProcedencia: 'ASC' },{ disciplina: 'ASC' },]);
                             break;
                             default:/*-------------------------------------------------------------------------------------------------------------2*/
-                            busqueda=await Invitados.find({activo:true,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await HistorialComedor.find({activo:true,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;
@@ -46,10 +51,10 @@ module.exports = {
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*---------------------------------------------------------------------------------------------------------3*/
-                            busqueda=await Invitados.find({activo:true,genero:inputs.genero}).sort('tecProcedencia ASC');
+                            busqueda=await HistorialComedor.find({activo:true,dia:inputs.dia}).sort('tecProcedencia ASC');
                             break;
                             default:/*--------------------------------------------------------------------------------------------------------------4*/
-                            busqueda=await Invitados.find({activo:true,genero:inputs.genero,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await HistorialComedor.find({activo:true,dia:inputs.dia,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;
@@ -57,16 +62,16 @@ module.exports = {
             break;
                 
             default:/*------------------------------------------------------------------------------------------------------------------------------14*/
-                switch(inputs.genero)
+                switch(inputs.dia)
                 {
-                    case "AMBAS":/*-----------------------------------------------------------------------------------------------------------------11*/
+                    case "TODAS":/*-----------------------------------------------------------------------------------------------------------------11*/
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*---------------------------------------------------------------------------------------------------------5*/
-                            busqueda=await Invitados.find({activo:true,tipo:inputs.tipo}).sort('tecProcedencia ASC');
+                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso}).sort('tecProcedencia ASC');
                             break;
                             default:/*--------------------------------------------------------------------------------------------------------------6*/
-                            busqueda=await Invitados.find({activo:true,tipo:inputs.tipo,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;
@@ -75,10 +80,10 @@ module.exports = {
                         switch(inputs.disciplina)
                         {
                             case "TODAS":/*---------------------------------------------------------------------------------------------------------11*/
-                            busqueda=await Invitados.find({activo:true,tipo:inputs.tipo,genero:inputs.genero}).sort('tecProcedencia ASC');
+                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso,dia:inputs.dia}).sort('tecProcedencia ASC');
                             break;
                             default:/*--------------------------------------------------------------------------------------------------------------12*/
-                            busqueda=await Invitados.find({activo:true,tipo:inputs.tipo,genero:inputs.genero,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
+                            busqueda=await HistorialComedor.find({activo:true,horaAcceso:inputs.horaAcceso,dia:inputs.dia,disciplina:inputs.disciplina}).sort('tecProcedencia ASC');
                             break;
                         }
                     break;

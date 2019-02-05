@@ -88,6 +88,8 @@ module.exports.routes = {
   '/hoteles/uno':{action:'hoteles/uno'},
   
   '/comedor/busqueda':{action:'comedor/busqueda'},
+  '/comedor/historialComedor':{action:'comedor/historialComedor'},
+  '/invitado/desactivar':{action:'invitado/desactivar'},
 
   '/staff/guardar':{action:'staff/guardar'},
   '/staff/todos':{action:'staff/todos'},
@@ -104,6 +106,7 @@ module.exports.routes = {
   '/juegos/subirpdf':{action: 'juegos/subirpdf'},
 
   '/calendario/eventos':{action: 'calendario/eventos'},
+  '/otro/backup':{action: 'otro/backup'},
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

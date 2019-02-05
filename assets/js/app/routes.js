@@ -196,6 +196,10 @@ ng.config(['$routeProvider', '$locationProvider', function($routeProvider, $loca
       templateUrl:'templates/Comedor/listadoComedor.html',
       controller:'todosComedor',
     })
+    .when('/HistorialComedor', {
+      templateUrl:'templates/Comedor/historialComedor.html',
+      controller:'historialComedor',
+    })
     .otherwise({
       redirectTo: '/welcome'
     });

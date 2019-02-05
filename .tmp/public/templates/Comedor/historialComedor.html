@@ -15,44 +15,44 @@
    });
 </script>
 <br>
-<center><h1>LISTA DE AUTORIZADOS A COMEDOR</h1></center>
+<center><h1>HISTORIAL ACCESO A COMEDOR</h1></center>
 <hr>
 <div class="row">
   <div class="col-xs-2">
-    <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/Comedor'}" ng-show="main.UsuarioFactory.usuario.id"
-                onclick="location.href='#/welcome'">
+    <button type="button" class="btn btn-dark" ng-class="{'active':main.rutaActual=='/HistorialComedor'}" ng-show="main.UsuarioFactory.usuario.id"
+                onclick="location.href='#/Comedor'">
                 <span class="glyphicon glyphicon-chevron-left"> REGRESAR</span>
     </button> 
   </div>
   <div class="col-xs-5"></div>
   <div class="col-xs-3"></div>
-  <div class="col-xs-2">
-      <button type="button" class="btn btn-dark" class="btn btn-success btn-sm" onclick="location.href='#/HistorialComedor'">
-              <i class="fas fa-address-book"> HISTORIAL ACCESO</i>
-      </button> 
-  </div>
+  <div class="col-xs-2"></div>
 </div>
 
 <br>
 <div class="row">
   <div class="col-xs-2">TIPO</div>
-  <div class="col-xs-2">GENERO</div>
+  <div class="col-xs-2">DIA</div>
   <div class="col-xs-3">DISCIPLINA</div>
-  <div class="col-xs-5"><left><label>Busqueda de Deportista</label></left></div>
+  <div class="col-xs-5">BUSQUEDA POR TECNOLÓGICO</div>
 </div>
 <div class="row">
     <div class="col-xs-2">
         <select class="form-control" >
-           <option  ng-click="opcionTipo('DEPORTISTA')">Deportista </option> 
-           <option  ng-click="opcionTipo('OTROS')">Entrenador/Auxiliar</option> 
-           <option  ng-click="opcionTipo('TODOS')" selected>AMBOS</option> 
+           <option  ng-click="" selected>DESAYUNO </option> 
+           <option  ng-click="">COMIDA</option> 
+           <option  ng-click="">CENA</option> 
         </select>
     </div>
     <div class="col-xs-2">
     <select class="form-control" >
-           <option  ng-click="opcionGenero('AMBAS')"selected>AMBOS </option> 
-           <option  ng-click="opcionGenero('M')"  >FEMENIL </option> 
-           <option  ng-click="opcionGenero('H')" >VARONIL </option> 
+           <option  ng-click=""selected>DOMINGO</option> 
+           <option  ng-click="" >LUNES</option> 
+           <option  ng-click="" >MARTES</option> 
+           <option  ng-click="" >MIERCOLES</option> 
+           <option  ng-click="" >JUEVES</option> 
+           <option  ng-click="" >VIERNES</option> 
+           <option  ng-click="" >SABADO</option> 
         </select>
     </div>
     <div class="col-xs-3">
@@ -96,7 +96,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat='dep in deportistas| startFromGrid: currentPage * pageSize | limitTo:pageSize'>
+          <tr ng-repeat='dep in historial| startFromGrid: currentPage * pageSize | limitTo:pageSize'>
             <td>{{dep.nombre}}</td>
             <td>{{dep.tecProcedencia}}</td>
             <td>{{dep.disciplina}}</td>

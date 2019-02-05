@@ -1,7 +1,7 @@
-ng.controller('usuariosController', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location) {
+ng.controller('usuariosController', ['$scope', '$http', '$routeParams', '$location', 
+  function($scope, $http, $routeParams, $location) {
 
     $scope.$on('$viewContentLoaded', () => {
-      $scope.staff = {};
         if($routeParams.curp!=='nuevo'){
         $http.post('/usuarios/uno',{curp:$routeParams.curp}).then(
           function success(response){
@@ -24,7 +24,7 @@ ng.controller('usuariosController', ['$scope', '$http', '$routeParams', '$locati
           function success(response){
             console.log('Resultado de guardar:', response);
             alertify.success('Datos Guardados.');
-            $location.path('/usuarios').remplace();
+            $location.path('/usuarios');
           }, function error(err){
             alertify.error('No se pudo guardar.');
             console.log('Error al guardar:', err);
@@ -33,16 +33,21 @@ ng.controller('usuariosController', ['$scope', '$http', '$routeParams', '$locati
       };
     
       $scope.actualizar= function(){
-        $http.post('/usuarios/actualizar',{usuario:$scope.usuario}).then(
-          function success(response){
-            console.log('Resultado de guardar:', response);
-            alertify.success('Datos Guardados.');
-            $location.path('/usuarios').remplace();
-          }, function error(err){
-            alertify.error('No se pudo guardar.');
-            console.log('Error al guardar:', err);
-          }
-        );
+        if(!$scope.usuario.password){
+          $scope.guardarUsuario();
+        }else{
+          console.log($scope.usuario);
+          $http.post('/usuarios/actualizar',{usuario:$scope.usuario}).then(
+            function success(response){
+              console.log('Resultado de guardar:', response);
+              alertify.success('Datos Guardados.');
+              $location.path('/usuarios');
+            }, function error(err){
+              alertify.error('No se pudo guardar.');
+              console.log('Error al guardar:', err);
+            }
+          );
+        }
       };
     
     $scope.currentPage = 0;
@@ -80,12 +85,6 @@ ng.controller('usuariosController', ['$scope', '$http', '$routeParams', '$locati
       $scope.currentPage = index - 1;
     };
   }
-])
-/*
-.filter('startFromGrid', function() {
-return function(input, start) {
-  start = +start;
-  return input.slice(start);
-}});
-  */  
+]);
+
     
